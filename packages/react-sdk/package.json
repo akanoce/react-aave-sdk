@@ -1,0 +1,23 @@
+{
+  "name": "@aave/react-sdk",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Collection of react hooks to interact with the aave pools and smart contracts.",
+  "main": "index.js",
+  "repository": "git@github.com:akanoce/react-aave-sdk.git",
+  "author": "<eriknucib@live.it>",
+  "license": "MIT",
+  "dependencies": {
+    "@aave/contract-helpers": "^1.28.0",
+    "@aave/math-utils": "^1.28.0",
+    "@bgd-labs/aave-address-book": "^2.25.0",
+    "@tanstack/react-query": "^5.28.14",
+    "@types/react": "^18.2.74",
+    "@types/react-dom": "^18.2.24",
+    "dayjs": "^1.11.10",
+    "ethers": "^6.11.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.4.4"
+  }
+}
