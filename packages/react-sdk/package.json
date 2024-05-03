@@ -37,6 +37,7 @@
     "react-dom": "^18.2.0",
     "reflect-metadata": "^0.2.2",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.4"
+    "typescript": "^5.4.4",
+    "viem": "^2.9.31"
   }
 }
