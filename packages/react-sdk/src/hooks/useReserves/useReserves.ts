@@ -4,10 +4,10 @@ import {
   UiPoolDataProvider,
 } from "@aave/contract-helpers";
 import { FormatReserveUSDResponse, formatReserves } from "@aave/math-utils";
-import { AaveV3Sepolia } from "@bgd-labs/aave-address-book";
 import { useQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
 import { useAaveContracts } from "../../providers/AaveContractsProvider";
+import { SupportedAddressBook } from "../../utils";
 
 type GetReservesResponse = {
   reserves: ReservesDataHumanized;
@@ -21,7 +21,7 @@ type GetReservesResponse = {
  */
 export const getReserves = async (
   poolDataProviderContract: UiPoolDataProvider,
-  chainAddressBook: typeof AaveV3Sepolia
+  chainAddressBook: SupportedAddressBook
 ): Promise<GetReservesResponse> => {
   // Object containing array of pool reserves and market base currency data
   // { reservesArray, baseCurrencyData }

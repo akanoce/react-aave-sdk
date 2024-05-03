@@ -2,14 +2,15 @@ import { VStack } from "@chakra-ui/react";
 import { UserReserves } from "./components";
 import { Reserves } from "./components/Reserves";
 import { useEthersProvider } from "./hooks/useEthersProvider";
-import { sepolia } from "viem/chains";
+import { mainnet } from "viem/chains";
 import { AaveContractsProvider } from "@aave/react-sdk";
 
+const chainId = mainnet.id;
 export const App = () => {
-  const provider = useEthersProvider({ chainId: sepolia.id });
+  const provider = useEthersProvider({ chainId });
   console.log("p", provider);
   return (
-    <AaveContractsProvider provider={provider}>
+    <AaveContractsProvider provider={provider} chainId={chainId}>
       <VStack spacing={4} w="full">
         <Reserves />
         <UserReserves />
