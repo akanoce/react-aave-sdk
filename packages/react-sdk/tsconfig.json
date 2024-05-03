@@ -20,8 +20,14 @@
         "strict": true,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+        "preserveWatchOutput": true,
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": true,
     },
+    "exclude": [
+        "node_modules"
+    ],
     "include": [
         "src"
     ],
