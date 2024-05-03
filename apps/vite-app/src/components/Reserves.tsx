@@ -3,6 +3,6 @@ import { useReserves } from "@aave/react-sdk";
 export const Reserves = () => {
   const reserves = useReserves();
 
-  console.log(reserves);
+  console.log("r", reserves);
   return <></>;
 };

@@ -28,6 +28,7 @@ export const getReserves = async (
   const reserves = await poolDataProviderContract.getReservesHumanized({
     lendingPoolAddressProvider: chainAddressBook.POOL_ADDRESSES_PROVIDER,
   });
+
   return {
     reserves,
     formattedReserves: formatReserves({

@@ -8,7 +8,6 @@ import { AaveContractsProvider } from "@aave/react-sdk";
 const chainId = mainnet.id;
 export const App = () => {
   const provider = useEthersProvider({ chainId });
-  console.log("p", provider);
   return (
     <AaveContractsProvider provider={provider} chainId={chainId}>
       <VStack spacing={4} w="full">
