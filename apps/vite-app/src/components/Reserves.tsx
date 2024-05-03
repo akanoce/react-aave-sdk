@@ -1,7 +1,8 @@
 import { useReserves } from "@aave/react-sdk";
 
 export const Reserves = () => {
-  const { data } = useReserves();
-  console.log(data);
+  const reserves = useReserves();
+
+  console.log(reserves);
   return <></>;
 };
