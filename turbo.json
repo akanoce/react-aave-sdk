@@ -4,6 +4,11 @@
     "build": {
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
-    "dev": {}
+    "@aave/react-sdk#build": {
+      "cache": false
+    },
+    "dev": {
+      "dependsOn": ["@aave/react-sdk#build"]
+    }
   }
 }
