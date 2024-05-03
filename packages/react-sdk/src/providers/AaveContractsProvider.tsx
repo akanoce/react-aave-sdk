@@ -5,7 +5,7 @@ import {
 } from "@aave/contract-helpers";
 import { AaveV3Sepolia } from "@bgd-labs/aave-address-book";
 import { createContext, useContext, useMemo } from "react";
-import { Provider } from "ethers";
+import { providers } from "ethers";
 
 interface CurrentUserContextType {
   poolDataProviderContract: UiPoolDataProvider | null;
@@ -18,7 +18,7 @@ const AaveContractsContext = createContext<CurrentUserContextType | null>(null);
 
 type Props = {
   children: React.ReactNode;
-  provider: Provider;
+  provider: providers.Provider;
 };
 export const AaveContractsProvider = ({ children, provider }: Props) => {
   const chainAddressBook = useMemo(() => AaveV3Sepolia, []);

@@ -15,9 +15,6 @@
     "README.md",
     "LICENSE"
   ],
-  "exports": {
-    ".": "./dist/index.mjs"
-  },
   "scripts": {
     "build": "tsup",
     "clean": "rm -rf dist .turbo",
@@ -33,10 +30,12 @@
     "@tanstack/react-query": "^5.28.14",
     "@types/react": "^18.2.74",
     "@types/react-dom": "^18.2.24",
+    "bignumber.js": "^9.1.2",
     "dayjs": "^1.11.10",
-    "ethers": "^6.11.1",
+    "ethers": "5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "reflect-metadata": "^0.2.2",
     "tsup": "^8.0.2",
     "typescript": "^5.4.4"
   }
