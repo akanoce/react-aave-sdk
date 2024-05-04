@@ -9,7 +9,7 @@ import dayjs from "dayjs";
 import { useAaveContracts } from "../../providers/AaveContractsProvider";
 import { SupportedAddressBook } from "../../utils";
 
-type GetReservesResponse = {
+export type GetReservesResponse = {
   reserves: ReservesDataHumanized;
   formattedReserves: (ReserveDataHumanized & FormatReserveUSDResponse)[];
 };
