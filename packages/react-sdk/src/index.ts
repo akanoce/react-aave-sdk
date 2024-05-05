@@ -3,13 +3,19 @@ import {
   useUserReserves,
   getReservesQueryKey,
   getUserReservesQueryKey,
+  type GetReservesResponse,
+  type GetUserReservesResponse,
 } from "./hooks";
-
-import type { GetReservesResponse, GetUserReservesResponse } from "./hooks";
 
 import { AaveContractsProvider } from "./providers";
 
-import { formatAPY, formatBalance, SupportedAddressBook } from "./utils";
+import {
+  formatAPY,
+  formatBalance,
+  supportedNetworks,
+  type SupportedChainIds,
+  type SupportedAddressBook,
+} from "./utils";
 
 export {
   AaveContractsProvider,
@@ -19,10 +25,12 @@ export {
   getUserReservesQueryKey,
   useReserves,
   useUserReserves,
+  supportedNetworks,
 };
 
 export type {
   SupportedAddressBook,
   GetReservesResponse,
   GetUserReservesResponse,
+  SupportedChainIds,
 };

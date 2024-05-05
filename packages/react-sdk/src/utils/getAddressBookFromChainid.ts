@@ -41,6 +41,28 @@ import {
   scroll,
 } from "viem/chains";
 
+export const supportedNetworks = [
+  sepolia,
+  mainnet,
+  arbitrum,
+  arbitrumSepolia,
+  avalanche,
+  base,
+  baseSepolia,
+  fantom,
+  fantomTestnet,
+  gnosis,
+  harmonyOne,
+  avalancheFuji,
+  polygonMumbai,
+  polygon,
+  polygonZkEvm,
+  optimism,
+  optimismSepolia,
+  scroll,
+  scrollSepolia,
+];
+
 export const getAddressBookFromChainid = (chainId: number) => {
   switch (chainId) {
     //TODO: BNB ?
@@ -90,3 +112,4 @@ export const getAddressBookFromChainid = (chainId: number) => {
 };
 
 export type SupportedAddressBook = ReturnType<typeof getAddressBookFromChainid>;
+export type SupportedChainIds = (typeof supportedNetworks)[number]["id"];
