@@ -61,6 +61,11 @@ export const ReservesTable: React.FC<Props> = ({
                 </HStack>
               </Td>
               <Td>
+                <Heading size="sm">
+                  {formatBalance(reserve.priceInUSD, "USD", 2)}
+                </Heading>
+              </Td>
+              <Td>
                 <VStack spacing={0} justify={"flex-start"} align={"flex-start"}>
                   <HStack spacing={1}>
                     <Heading size="sm">
@@ -72,7 +77,7 @@ export const ReservesTable: React.FC<Props> = ({
                   </HStack>
                   <HStack spacing={1}>
                     <Heading size="sm">
-                      {formatBalance(reserve.availableLiquidityUSD)}
+                      {formatBalance(reserve.availableLiquidityUSD, "USD")}
                     </Heading>
                     <Text size="sm" as="sub">
                       USD
@@ -80,14 +85,7 @@ export const ReservesTable: React.FC<Props> = ({
                   </HStack>
                 </VStack>
               </Td>
-              <Td>
-                <Heading size="sm">
-                  {new Intl.NumberFormat("it-IT", {
-                    style: "currency",
-                    currency: "USD",
-                  }).format(Number(reserve.priceInUSD))}
-                </Heading>
-              </Td>
+
               <Td>
                 <VStack spacing={0} justify={"flex-start"} align={"flex-start"}>
                   <HStack spacing={1}>
@@ -100,7 +98,7 @@ export const ReservesTable: React.FC<Props> = ({
                   </HStack>
                   <HStack spacing={1}>
                     <Heading size="sm">
-                      {formatBalance(reserve.totalDebtUSD)}
+                      {formatBalance(reserve.totalDebtUSD, "USD")}
                     </Heading>
                     <Text size="sm" as="sub">
                       USD
