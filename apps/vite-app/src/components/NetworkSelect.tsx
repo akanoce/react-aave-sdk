@@ -12,7 +12,7 @@ export const NetworkSelect = () => {
     [setChainId]
   );
   return (
-    <Select placeholder="Select Network" value={chainId} onChange={onChange}>
+    <Select value={chainId} onChange={onChange}>
       {supportedNetworks.map((network) => (
         <option key={network.id} value={network.id}>
           {network.name}
