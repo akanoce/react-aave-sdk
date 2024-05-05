@@ -2,19 +2,20 @@ import { Outlet, createBrowserRouter, Navigate } from "react-router-dom";
 import { Navbar } from "./components/Navbar";
 import { Reserves } from "./pages/Reserves";
 import { UserReserves } from "./pages/UserReserves";
-import { Container } from "@chakra-ui/react";
+import { Container, HStack } from "@chakra-ui/react";
+import { DesktopSidebar } from "./components/Sidebar/DesktopSidebar";
+import { ROUTES } from "./routes";
 
-export const ROUTES = {
-  RESERVES: "/reserves",
-  USER_RESERVES: "/user-reserves",
-};
 export const router = createBrowserRouter([
   {
     element: (
       <>
         <Navbar />
-        <Container maxW="container.xl">
-          <Outlet />
+        <Container maxW={["container.3xl", "container.2xl", "container.xl"]}>
+          <HStack spacing={4} py={4} w="full" align="stretch">
+            <DesktopSidebar />
+            <Outlet />
+          </HStack>
         </Container>
       </>
     ),

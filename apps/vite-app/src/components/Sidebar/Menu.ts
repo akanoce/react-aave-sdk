@@ -1,3 +1,5 @@
+import { ROUTES } from "../../routes";
+
 export type MenuEntry = {
   title: string;
   icon?: string;
@@ -7,10 +9,10 @@ export type MenuEntry = {
 export const Menu: MenuEntry[] = [
   {
     title: "useReserves",
-    route: "/reserves",
+    route: ROUTES.RESERVES,
   },
   {
     title: "useUserReserves",
-    route: "/user-reserves",
+    route: ROUTES.USER_RESERVES,
   },
 ];
