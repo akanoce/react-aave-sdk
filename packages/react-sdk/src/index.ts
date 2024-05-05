@@ -1,4 +1,14 @@
 import { useReserves, useUserReserves } from "./hooks";
 import { AaveContractsProvider } from "./providers";
 
-export { useReserves, useUserReserves, AaveContractsProvider };
+import { formatAPY, formatBalance, SupportedAddressBook } from "./utils";
+
+export {
+  useReserves,
+  useUserReserves,
+  AaveContractsProvider,
+  formatAPY,
+  formatBalance,
+};
+
+export type { SupportedAddressBook };
