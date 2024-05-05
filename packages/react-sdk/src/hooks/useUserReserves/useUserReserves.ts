@@ -19,7 +19,7 @@ import {
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAaveContracts } from "../../providers";
 
-type GetUserReservesResponse = {
+export type GetUserReservesResponse = {
   userReserves: {
     userReserves: UserReserveDataHumanized[];
     userEmodeCategoryId: number;
