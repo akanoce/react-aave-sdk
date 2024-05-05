@@ -1,0 +1,27 @@
+{
+  "name": "@repo/components",
+  "version": "1.0.0",
+  "description": "Shared UI components for react-aave-sdk monorepo",
+  "main": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aave/react-sdk": "*",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@types/react": "^18.3.1",
+    "cryptocurrency-icons": "^0.18.1",
+    "framer-motion": "^11.1.7",
+    "react": "^18.3.1",
+    "typescript": "^5.4.5"
+  }
+}
