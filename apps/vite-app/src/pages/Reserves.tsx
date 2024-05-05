@@ -7,6 +7,7 @@ import {
   HStack,
   Heading,
   Spinner,
+  Stack,
   Text,
   VStack,
 } from "@chakra-ui/react";
@@ -53,7 +54,11 @@ export const Reserves = () => {
       <CardHeader>
         <VStack align="start" spacing={2} w="full">
           <Heading size="md">Aave V3 Reserves</Heading>
-          <HStack spacing={4}>
+          <Stack
+            spacing={[4, 4, 8]}
+            direction={["column", "column", "row"]}
+            align={"flex-start"}
+          >
             <Box>
               <Text textTransform={"uppercase"} color="gray.500">
                 Total Liquidity
@@ -68,7 +73,7 @@ export const Reserves = () => {
               </Text>
               <Heading size="sm">{formatBalance(totalDebt, "USD")}</Heading>
             </Box>
-          </HStack>
+          </Stack>
         </VStack>
       </CardHeader>
       <CardBody>
