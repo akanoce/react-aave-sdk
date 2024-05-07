@@ -4,6 +4,5 @@
  * @param decimals  The number of decimal places to round to
  * @returns  The formatted APY
  */
-export const formatAPY = (apy?: number | string, decimals = 2) => {
-  return `${(Number(apy ?? 0) * 100).toFixed(decimals)}%`;
-};
+export const formatAPY = (apy?: number | string, decimals = 2) =>
+  `${(Number(apy ?? 0) * 100).toFixed(decimals)}%`;

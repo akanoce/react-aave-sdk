@@ -9,6 +9,9 @@
     },
     "dev": {
       "dependsOn": ["@aave/react-sdk#build"]
+    },
+    "lint": {
+      "dependsOn": ["@aave/react-sdk#build"]
     }
   }
 }

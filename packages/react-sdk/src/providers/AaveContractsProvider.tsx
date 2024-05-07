@@ -29,7 +29,7 @@ export const AaveContractsProvider = ({
 }: Props) => {
   const chainAddressBook = useMemo(
     () => getAddressBookFromChainid(chainId),
-    [chainId]
+    [chainId],
   );
 
   // View contract used to fetch all reserves data (including market base currency data), and user reserves
@@ -43,7 +43,7 @@ export const AaveContractsProvider = ({
             chainId: chainAddressBook.CHAIN_ID,
           })
         : null,
-    [provider, chainAddressBook]
+    [provider, chainAddressBook],
   );
 
   // View contract used to fetch all reserve incentives (APRs), and user incentives
@@ -58,7 +58,7 @@ export const AaveContractsProvider = ({
             chainId: chainAddressBook.CHAIN_ID,
           })
         : null,
-    [provider, chainAddressBook]
+    [provider, chainAddressBook],
   );
 
   const poolContract = useMemo(
@@ -69,7 +69,7 @@ export const AaveContractsProvider = ({
             WETH_GATEWAY: chainAddressBook.WETH_GATEWAY, // Goerli GHO market
           })
         : null,
-    [provider, chainAddressBook]
+    [provider, chainAddressBook],
   );
 
   const data = useMemo(
@@ -84,7 +84,7 @@ export const AaveContractsProvider = ({
       incentiveDataProviderContract,
       chainAddressBook,
       poolContract,
-    ]
+    ],
   );
   return (
     <AaveContractsContext.Provider value={data}>
@@ -98,7 +98,7 @@ export const useAaveContracts = () => {
 
   if (!context)
     throw new Error(
-      "AaveContractsContext has to be used within <AaveContractsContext.Provider>"
+      "AaveContractsContext has to be used within <AaveContractsContext.Provider>",
     );
 
   return context;

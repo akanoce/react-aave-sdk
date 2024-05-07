@@ -65,7 +65,7 @@ export const supportedNetworks = [
 
 export const getAddressBookFromChainid = (chainId: number) => {
   switch (chainId) {
-    //TODO: BNB ?
+    // TODO: BNB ?
     case sepolia.id:
       return AaveV3Sepolia;
     case mainnet.id:

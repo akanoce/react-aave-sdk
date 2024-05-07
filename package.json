@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "turbo run lint"
   },
   "engines": {
     "node": ">=18"

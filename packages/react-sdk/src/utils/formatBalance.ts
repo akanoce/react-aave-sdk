@@ -10,7 +10,7 @@ import BigNumber from "bignumber.js";
 export const formatBalance = (
   balance?: number | string,
   currency?: string,
-  decimals = 2
+  decimals = 2,
 ) => {
   const bn = BigNumber(balance ?? 0);
   if (bn.isNaN()) return "NaN";
@@ -22,7 +22,7 @@ export const formatBalance = (
   if (currency)
     return new Intl.NumberFormat("it-IT", {
       style: "currency",
-      currency: currency,
+      currency,
     }).format(Number(fixedDecimals));
 
   return fixedDecimals;
