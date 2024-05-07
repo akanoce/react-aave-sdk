@@ -21,7 +21,7 @@ export type GetReservesResponse = {
  */
 export const getReserves = async (
   poolDataProviderContract: UiPoolDataProvider,
-  chainAddressBook: SupportedAddressBook
+  chainAddressBook: SupportedAddressBook,
 ): Promise<GetReservesResponse> => {
   // Object containing array of pool reserves and market base currency data
   // { reservesArray, baseCurrencyData }
@@ -59,9 +59,7 @@ export const useReserves = () => {
   return useQuery({
     queryKey: getReservesQueryKey(chainAddressBook.CHAIN_ID),
     queryFn: async () =>
-      enabled
-        ? await getReserves(poolDataProviderContract, chainAddressBook)
-        : null,
+      enabled ? getReserves(poolDataProviderContract, chainAddressBook) : null,
     enabled,
   });
 };

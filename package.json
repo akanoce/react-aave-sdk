@@ -10,7 +10,8 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "turbo run lint"
   },
   "engines": {
     "node": ">=18"
@@ -23,6 +24,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "husky": "^9.0.11"
+    "husky": "^9.0.11",
+    "prettier": "^3.2.5"
   }
 }

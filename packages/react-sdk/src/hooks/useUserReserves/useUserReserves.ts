@@ -10,13 +10,13 @@ import {
 } from "@aave/math-utils";
 import dayjs from "dayjs";
 
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { SupportedAddressBook } from "../../utils";
 import {
   GetReservesResponse,
   getReserves,
   getReservesQueryKey,
 } from "../useReserves/useReserves";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useAaveContracts } from "../../providers";
 
 export type GetUserReservesResponse = {
@@ -40,7 +40,7 @@ export const getUserReserves = async (
   poolDataProviderContract: UiPoolDataProvider,
   chainAddressBook: SupportedAddressBook,
   user: string,
-  reservesResponse: GetReservesResponse
+  reservesResponse: GetReservesResponse,
 ): Promise<GetUserReservesResponse> => {
   // Object containing array or users aave positions and active eMode category
   // { userReserves, userEmodeCategoryId }
@@ -90,11 +90,11 @@ export const useUserReserves = (user?: string) => {
         queryKey: getReservesQueryKey(chainAddressBook.CHAIN_ID),
         queryFn: () => getReserves(poolDataProviderContract, chainAddressBook),
       });
-      return await getUserReserves(
+      return getUserReserves(
         poolDataProviderContract,
         chainAddressBook,
         user,
-        reserves
+        reserves,
       );
     },
     enabled,

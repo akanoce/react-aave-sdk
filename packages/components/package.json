@@ -3,16 +3,18 @@
   "version": "1.0.0",
   "description": "Shared UI components for react-aave-sdk monorepo",
   "main": "src/index.ts",
+  "repository": "git@github.com:akanoce/react-aave-sdk.git",
+  "author": "<eriknucib@live.it>",
+  "license": "MIT",
   "exports": {
     ".": {
       "import": "./src/index.ts"
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .ts,.tsx . --fix"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "@aave/react-sdk": "*",
     "@chakra-ui/react": "^2.8.2",
@@ -21,7 +23,17 @@
     "@types/react": "^18.3.1",
     "cryptocurrency-icons": "^0.18.1",
     "framer-motion": "^11.1.7",
-    "react": "^18.3.1",
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^18.0.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-refresh": "^0.4.6",
     "typescript": "^5.4.5"
   }
 }
