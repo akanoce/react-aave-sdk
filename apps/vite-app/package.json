@@ -3,6 +3,9 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "repository": "git@github.com:akanoce/react-aave-sdk.git",
+  "author": "<eriknucib@live.it>",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
