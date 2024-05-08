@@ -22,18 +22,18 @@ export default function Reserves() {
     () =>
       reserves?.formattedReserves.reduce(
         (acc, reserve) => acc + Number(reserve.totalLiquidityUSD),
-        0,
+        0
       ),
-    [reserves],
+    [reserves]
   );
 
   const totalDebt = useMemo(
     () =>
       reserves?.formattedReserves.reduce(
         (acc, reserve) => acc + Number(reserve.totalDebtUSD),
-        0,
+        0
       ),
-    [reserves],
+    [reserves]
   );
 
   if (reservesLoading)
