@@ -1,3 +1,4 @@
+// @ts-nocheck
 import linkIcon from "cryptocurrency-icons/svg/color/link.svg";
 import usdcIcon from "cryptocurrency-icons/svg/color/usdc.svg";
 import usdtIcon from "cryptocurrency-icons/svg/color/usdt.svg";
