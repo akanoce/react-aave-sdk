@@ -1,8 +1,12 @@
 import {
   useReserves,
+  useReservesIncentives,
   useUserReserves,
+  useUserReservesIncentives,
   getReservesQueryKey,
+  getReservesIncentivesQueryKey,
   getUserReservesQueryKey,
+  getUserReservesIncentivesQueryKey,
   type GetReservesResponse,
   type GetUserReservesResponse,
 } from "./hooks";
@@ -22,9 +26,13 @@ export {
   formatAPY,
   formatBalance,
   getReservesQueryKey,
+  getReservesIncentivesQueryKey,
   getUserReservesQueryKey,
+  getUserReservesIncentivesQueryKey,
   useReserves,
+  useReservesIncentives,
   useUserReserves,
+  useUserReservesIncentives,
   supportedNetworks,
 };
 

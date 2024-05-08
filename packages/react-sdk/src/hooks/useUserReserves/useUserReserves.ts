@@ -66,16 +66,17 @@ export const getUserReserves = async (
   };
 };
 
-export const getUserReservesQueryKey = (user?: string) => [
+export const getUserReservesQueryKey = (chainId: number, user?: string) => [
   "AAVE",
-  user,
+  chainId,
   "USER_RESERVES",
+  user,
 ];
 
-/**
+/** Fetches user reserves and active eMode category from the Aave V3 UI Pool Data Provider contract
  * see {@link getUserReserves}
  * @param user
- * @returns
+ * @returns Query object containing array of pool reserves and market base currency data
  */
 export const useUserReserves = (user?: string) => {
   const { poolDataProviderContract, chainAddressBook } = useAaveContracts();
@@ -83,7 +84,7 @@ export const useUserReserves = (user?: string) => {
 
   const enabled = !!poolDataProviderContract && !!chainAddressBook && !!user;
   return useQuery({
-    queryKey: getUserReservesQueryKey(user),
+    queryKey: getUserReservesQueryKey(chainAddressBook.CHAIN_ID, user),
     queryFn: async () => {
       if (!enabled) return null;
       const reserves = await queryClient.ensureQueryData({
