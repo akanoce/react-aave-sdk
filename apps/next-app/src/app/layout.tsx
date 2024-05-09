@@ -6,11 +6,11 @@ import { AaveContractsProvider } from "@aave/react-sdk";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { Navbar } from "@/app/ui/Navbar";
-import { DesktopSidebar } from "@/app/ui/DesktopSidebar";
-import { config } from "@/app/lib/wagmi-config";
-import { useSelectedNetwork } from "@/app/lib/store";
-import { useEthersProvider } from "@/app/hooks/useEthersProvider";
+import { Navbar } from "@/components/Navbar";
+import { DesktopSidebar } from "@/components/DesktopSidebar";
+import { config } from "@/lib/wagmi-config";
+import { useSelectedNetwork } from "@/lib/store";
+import { useEthersProvider } from "@/hooks/useEthersProvider";
 
 function Interface({
   children,
