@@ -18,11 +18,14 @@ import {
   formatAPY,
   formatBalance,
   type GetReservesResponse,
+  type GetReservesIncentives,
 } from "@aave/react-sdk";
 import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
 
 type Props = {
-  formattedReserves: GetReservesResponse["formattedReserves"];
+  formattedReserves:
+    | GetReservesResponse["formattedReserves"]
+    | GetReservesIncentives["formattedReservesIncentives"];
   tableCaption?: React.ReactNode;
 };
 
@@ -41,6 +44,12 @@ export const ReservesTable: React.FC<Props> = ({
           <Th>Total debt</Th>
           <Th>Caps</Th>
           <Th>APY - Supply/Borrow</Th>
+          {formattedReserves[0].aIncentivesData && (
+            <>
+              <Th>aToken incentives</Th>
+              <Th>Variable rate incentives</Th>
+            </>
+          )}
         </Tr>
       </Thead>
       <Tbody>
@@ -126,6 +135,50 @@ export const ReservesTable: React.FC<Props> = ({
                 </Heading>
               </VStack>
             </Td>
+            {reserve.aIncentivesData && (
+              <>
+                <Td>
+                  {reserve.aIncentivesData.length === 0 && (
+                    <Text size="sm">-</Text>
+                  )}
+                  {reserve.aIncentivesData.map((incentive) => (
+                    <VStack
+                      key={incentive.rewardTokenAddress}
+                      spacing={0}
+                      justify="flex-start"
+                      align="flex-start"
+                    >
+                      <HStack spacing={1}>
+                        <Heading size="sm" color="green">
+                          {formatAPY(incentive.incentiveAPR)}
+                        </Heading>
+                        <Text size="sm">- {incentive.rewardTokenSymbol}</Text>
+                      </HStack>
+                    </VStack>
+                  ))}
+                </Td>
+                <Td>
+                  {reserve.vIncentivesData.length === 0 && (
+                    <Text size="sm">-</Text>
+                  )}
+                  {reserve.vIncentivesData.map((incentive) => (
+                    <VStack
+                      key={incentive.rewardTokenAddress}
+                      spacing={0}
+                      justify="flex-start"
+                      align="flex-start"
+                    >
+                      <HStack spacing={1}>
+                        <Heading size="sm" color="green">
+                          {formatAPY(incentive.incentiveAPR)}
+                        </Heading>
+                        <Text size="sm">- {incentive.rewardTokenSymbol}</Text>
+                      </HStack>
+                    </VStack>
+                  ))}
+                </Td>
+              </>
+            )}
           </Tr>
         ))}
       </Tbody>

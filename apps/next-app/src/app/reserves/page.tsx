@@ -1,6 +1,10 @@
 "use client";
 
-import { formatBalance, useReserves } from "@aave/react-sdk";
+import {
+  formatBalance,
+  useReserves,
+  useReservesIncentives,
+} from "@aave/react-sdk";
 import {
   Box,
   Card,
@@ -16,24 +20,25 @@ import { ReservesTable } from "@repo/components";
 import { useMemo } from "react";
 
 export default function Reserves() {
-  const { data: reserves, isLoading: reservesLoading } = useReserves();
+  const { data: reservesData, isLoading: reservesLoading } =
+    useReservesIncentives();
 
   const totalLiquidity = useMemo(
     () =>
-      reserves?.formattedReserves.reduce(
+      reservesData?.formattedReservesIncentives.reduce(
         (acc, reserve) => acc + Number(reserve.totalLiquidityUSD),
-        0
+        0,
       ),
-    [reserves]
+    [reservesData],
   );
 
   const totalDebt = useMemo(
     () =>
-      reserves?.formattedReserves.reduce(
+      reservesData?.formattedReservesIncentives.reduce(
         (acc, reserve) => acc + Number(reserve.totalDebtUSD),
-        0
+        0,
       ),
-    [reserves]
+    [reservesData],
   );
 
   if (reservesLoading)
@@ -48,7 +53,7 @@ export default function Reserves() {
       </Card>
     );
 
-  if (!reserves) return null;
+  if (!reservesData) return null;
 
   return (
     <Card w="full">
@@ -79,7 +84,7 @@ export default function Reserves() {
       </CardHeader>
       <CardBody>
         <ReservesTable
-          formattedReserves={reserves.formattedReserves}
+          formattedReserves={reservesData.formattedReservesIncentives}
           tableCaption="Aave V3 Reserves"
         />
       </CardBody>

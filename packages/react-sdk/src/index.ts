@@ -9,6 +9,7 @@ import {
   getUserReservesIncentivesQueryKey,
   type GetReservesResponse,
   type GetUserReservesResponse,
+  GetReservesIncentives,
 } from "./hooks";
 
 import { AaveContractsProvider } from "./providers";
@@ -40,5 +41,6 @@ export type {
   SupportedAddressBook,
   GetReservesResponse,
   GetUserReservesResponse,
+  GetReservesIncentives,
   SupportedChainIds,
 };
