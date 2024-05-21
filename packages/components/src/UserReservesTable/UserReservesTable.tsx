@@ -34,10 +34,8 @@ export const UserReservesTable: React.FC<Props> = ({
         <Tr>
           <Th>Token</Th>
           <Th>Balance</Th>
-          <Th>Stable Borrows</Th>
           <Th>Variable Borrows</Th>
           <Th>Total Borrows</Th>
-          <Th>Stable Borrows - APY-APR</Th>
         </Tr>
       </Thead>
       <Tbody>
@@ -84,24 +82,6 @@ export const UserReservesTable: React.FC<Props> = ({
               <Td>
                 <VStack spacing={0} justify="flex-start" align="flex-start">
                   <HStack spacing={1}>
-                    <Heading size="sm">{userReserve.stableBorrows}</Heading>
-                    <Text size="sm" as="sub">
-                      {userReserve.reserve.symbol}
-                    </Text>
-                  </HStack>
-                  <HStack spacing={1}>
-                    <Heading size="sm">
-                      {formatBalance(userReserve.stableBorrowsUSD, "USD")}
-                    </Heading>
-                    <Text size="sm" as="sub">
-                      USD
-                    </Text>
-                  </HStack>
-                </VStack>
-              </Td>
-              <Td>
-                <VStack spacing={0} justify="flex-start" align="flex-start">
-                  <HStack spacing={1}>
                     <Heading size="sm">{userReserve.variableBorrows}</Heading>
                     <Text size="sm" as="sub">
                       {userReserve.reserve.symbol}
@@ -133,16 +113,6 @@ export const UserReservesTable: React.FC<Props> = ({
                       USD
                     </Text>
                   </HStack>
-                </VStack>
-              </Td>
-              <Td>
-                <VStack spacing={0} justify="flex-start" align="flex-start">
-                  <Heading size="sm" color="green">
-                    APY {formatAPY(userReserve.stableBorrowAPY)}
-                  </Heading>
-                  <Heading size="sm" color="orange">
-                    APR {formatAPY(userReserve.stableBorrowAPR)}
-                  </Heading>
                 </VStack>
               </Td>
             </Tr>
