@@ -6,7 +6,10 @@ type SubmitTransactionParamsType = {
   signer: WalletClient;
   txs: EthereumTransactionTypeExtended[];
 };
-export const submitTransaction = async ({ signer, txs }: SubmitTransactionParamsType) => {
+export const submitTransaction = async ({
+  signer,
+  txs,
+}: SubmitTransactionParamsType) => {
   const txResponses: `0x${string}`[] = [];
   await Promise.all(
     txs.map(async (tx) => {
@@ -19,7 +22,7 @@ export const submitTransaction = async ({ signer, txs }: SubmitTransactionParams
       });
 
       txResponses.push(txResponse);
-    })
+    }),
   );
   return txResponses;
 };

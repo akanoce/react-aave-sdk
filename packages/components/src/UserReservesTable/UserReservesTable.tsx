@@ -16,22 +16,22 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { type GetUserReservesResponse, formatBalance } from "@aave/react-sdk";
-import { useSupply } from "@aave/react-sdk";
-import { WalletClient } from "viem";
+import { useSupply, useWithdraw } from "@aave/react-sdk";
+import { useWalletClient } from "wagmi";
 import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
 
 type Props = {
   userReserves: GetUserReservesResponse["formattedReserves"];
   tableCaption?: React.ReactNode;
-  signer: WalletClient;
 };
 
 export const UserReservesTable: React.FC<Props> = ({
   userReserves,
   tableCaption,
-  signer,
 }) => {
+  const { data: signer } = useWalletClient();
   const supplyMutation = useSupply({ signer });
+  const withdrawMutation = useWithdraw({ signer });
   return (
     <TableContainer>
       <Table variant="simple">
@@ -55,24 +55,37 @@ export const UserReservesTable: React.FC<Props> = ({
             .map((userReserve) => (
               <Tr key={userReserve.reserve.id}>
                 <Td>
-                  <Button
-                    isLoading={supplyMutation.isPending}
-                    onClick={() =>
-                      supplyMutation.mutate({
-                        reserve: userReserve.reserve.aTokenAddress,
-                        amount: userReserve.underlyingBalance,
-                      })
-                    }
-                  >
-                    Supply
-                  </Button>
+                  <HStack spacing={1}>
+                    <Button
+                      isLoading={supplyMutation.isPending}
+                      onClick={() =>
+                        supplyMutation.mutate({
+                          reserve: userReserve.reserve.underlyingAsset,
+                          amount: userReserve.underlyingBalance,
+                        })
+                      }
+                    >
+                      Supply
+                    </Button>
+                    <Button
+                      isLoading={withdrawMutation.isPending}
+                      onClick={() =>
+                        withdrawMutation.mutate({
+                          reserve: userReserve.reserve.underlyingAsset,
+                          amount: "1",
+                        })
+                      }
+                    >
+                      Withdraw
+                    </Button>
+                  </HStack>
                 </Td>
                 <Td>
                   <HStack spacing={2}>
                     <Image
                       src={
                         CryptoIconMap[
-                        userReserve.reserve.symbol.toUpperCase()
+                          userReserve.reserve.symbol.toUpperCase()
                         ] ?? genericCryptoIcon
                       }
                       alt={userReserve.reserve.symbol}
