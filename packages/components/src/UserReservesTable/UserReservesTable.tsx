@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   HStack,
   Heading,
   Image,
@@ -19,6 +18,8 @@ import { type GetUserReservesResponse, formatBalance } from "@aave/react-sdk";
 import { useSupply, useWithdraw } from "@aave/react-sdk";
 import { useWalletClient } from "wagmi";
 import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
+import { SupplyButton } from "./SupplyButton";
+import { WithdrawButton } from "./WithdrawButton";
 
 type Props = {
   userReserves: GetUserReservesResponse["formattedReserves"];
@@ -30,8 +31,6 @@ export const UserReservesTable: React.FC<Props> = ({
   tableCaption,
 }) => {
   const { data: signer } = useWalletClient();
-  const supplyMutation = useSupply({ signer });
-  const withdrawMutation = useWithdraw({ signer });
   return (
     <TableContainer>
       <Table variant="simple">
@@ -56,28 +55,16 @@ export const UserReservesTable: React.FC<Props> = ({
               <Tr key={userReserve.reserve.id}>
                 <Td>
                   <HStack spacing={1}>
-                    <Button
-                      isLoading={supplyMutation.isPending}
-                      onClick={() =>
-                        supplyMutation.mutate({
-                          reserve: userReserve.reserve.underlyingAsset,
-                          amount: userReserve.underlyingBalance,
-                        })
-                      }
-                    >
-                      Supply
-                    </Button>
-                    <Button
-                      isLoading={withdrawMutation.isPending}
-                      onClick={() =>
-                        withdrawMutation.mutate({
-                          reserve: userReserve.reserve.underlyingAsset,
-                          amount: "1",
-                        })
-                      }
-                    >
-                      Withdraw
-                    </Button>
+                    <SupplyButton
+                      signer={signer}
+                      maxAmount="1"
+                      reserveAddress={userReserve.reserve.underlyingAsset}
+                    />
+                    <WithdrawButton
+                      signer={signer}
+                      maxAmount="1"
+                      reserveAddress={userReserve.reserve.underlyingAsset}
+                    />
                   </HStack>
                 </Td>
                 <Td>
