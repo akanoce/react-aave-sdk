@@ -13,8 +13,10 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useWalletClient } from "wagmi";
 
 export default function UserReserves() {
+  const { data: signer } = useWalletClient();
   const address = "0xA42456676EC8d14dB9B008A2E64f25A8EAf49229";
 
   const { data: userReserves, isLoading: reservesLoading } =
@@ -84,6 +86,7 @@ export default function UserReserves() {
         <UserReservesTable
           userReserves={userReserves.formattedReserves}
           tableCaption="Aave V3 User Reserves"
+          signer={signer}
         />
       </CardBody>
     </Card>

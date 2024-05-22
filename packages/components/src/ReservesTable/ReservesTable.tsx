@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Button,
   HStack,
   Heading,
   Image,
@@ -41,6 +42,7 @@ export const ReservesTable: React.FC<Props> = ({
           <Th>Total debt</Th>
           <Th>Caps</Th>
           <Th>APY - Supply/Borrow</Th>
+          <Th> </Th>
         </Tr>
       </Thead>
       <Tbody>
@@ -126,6 +128,7 @@ export const ReservesTable: React.FC<Props> = ({
                 </Heading>
               </VStack>
             </Td>
+            <Td />
           </Tr>
         ))}
       </Tbody>

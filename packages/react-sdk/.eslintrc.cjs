@@ -32,5 +32,6 @@ module.exports = {
     "react/require-default-props": "off",
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
+    "consistent-return": "off",
   },
 };

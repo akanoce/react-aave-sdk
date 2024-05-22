@@ -7,6 +7,7 @@ import {
   getReservesIncentivesQueryKey,
   getUserReservesQueryKey,
   getUserReservesIncentivesQueryKey,
+  useSupply,
   type GetReservesResponse,
   type GetUserReservesResponse,
 } from "./hooks";
@@ -33,6 +34,7 @@ export {
   useReservesIncentives,
   useUserReserves,
   useUserReservesIncentives,
+  useSupply,
   supportedNetworks,
 };
 
