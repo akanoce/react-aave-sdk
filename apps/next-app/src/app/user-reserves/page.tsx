@@ -13,9 +13,11 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
+import { useWalletClient } from "wagmi";
 
 export default function UserReserves() {
-  const address = "0xA42456676EC8d14dB9B008A2E64f25A8EAf49229";
+  const { data: signer } = useWalletClient();
+  const address = "0x98E92F3d68c1D9bAeEe8b8490829dFcEB3E577F2";
 
   const { data: userReserves, isLoading: reservesLoading } =
     useUserReserves(address);
