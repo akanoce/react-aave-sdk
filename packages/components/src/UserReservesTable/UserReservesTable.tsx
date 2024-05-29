@@ -20,6 +20,7 @@ import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
 import { SupplyButton } from "./SupplyButton";
 import { WithdrawButton } from "./WithdrawButton";
 import { RepayButton } from "./RepayButton";
+import { BorrowButton } from "../BorrowButton/BorrowButton";
 
 type Props = {
   userReserves: GetUserReservesResponse["formattedReserves"];
@@ -49,30 +50,41 @@ export const UserReservesTable: React.FC<Props> = ({
             .filter(
               (userReserve) =>
                 Number(userReserve.underlyingBalance) > 0 ||
-                Number(userReserve.totalBorrows) > 0,
+                Number(userReserve.totalBorrows) > 0
             )
             .map((userReserve) => (
               <Tr key={userReserve.reserve.id}>
                 <Td>
                   <HStack spacing={1}>
-                    <SupplyButton
-                      signer={signer}
-                      maxAmount="100"
-                      reserveAddress={userReserve.reserve.underlyingAsset}
-                    />
-                    {Number(userReserve.underlyingBalance) > 0 && (
-                      <WithdrawButton
-                        signer={signer}
-                        maxAmount={userReserve.underlyingBalance}
-                        reserveAddress={userReserve.reserve.underlyingAsset}
-                      />
-                    )}
-                    {Number(userReserve.totalBorrows) > 0 && (
-                      <RepayButton
-                        signer={signer}
-                        maxAmount={userReserve.totalBorrows}
-                        reserveAddress={userReserve.reserve.underlyingAsset}
-                      />
+                    {signer ? (
+                      <>
+                        <SupplyButton
+                          signer={signer}
+                          maxAmount="1"
+                          reserveAddress={userReserve.reserve.underlyingAsset}
+                        />
+                        {Number(userReserve.underlyingBalance) > 0 && (
+                          <WithdrawButton
+                            signer={signer}
+                            maxAmount={userReserve.underlyingBalance}
+                            reserveAddress={userReserve.reserve.underlyingAsset}
+                          />
+                        )}
+                        {Number(userReserve.totalBorrows) > 0 && (
+                          <RepayButton
+                            signer={signer}
+                            maxAmount={userReserve.totalBorrows}
+                            reserveAddress={userReserve.reserve.underlyingAsset}
+                          />
+                        )}
+                        <BorrowButton
+                          signer={signer}
+                          formattedUserSummary={userReserves}
+                          reserve={userReserve.reserve}
+                        />
+                      </>
+                    ) : (
+                      <Text>Connect Wallet</Text>
                     )}
                   </HStack>
                 </Td>

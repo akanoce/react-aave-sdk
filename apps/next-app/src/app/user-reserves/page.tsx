@@ -13,15 +13,27 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { useWalletClient } from "wagmi";
+import { useAccount } from "wagmi";
 
 export default function UserReserves() {
-  const { data: signer } = useWalletClient();
-  const address = "0x98E92F3d68c1D9bAeEe8b8490829dFcEB3E577F2";
+  const { address } = useAccount();
 
   const { data: userReserves, isLoading: reservesLoading } =
     useUserReserves(address);
 
+  if (!address)
+    return (
+      <Card w="full">
+        <CardHeader>
+          <Heading size="md">Connect your wallet first</Heading>
+        </CardHeader>
+        <CardBody>
+          <Text>
+            To view your user reserves, please connect your wallet first.
+          </Text>
+        </CardBody>
+      </Card>
+    );
   if (reservesLoading)
     return (
       <Card w="full">
@@ -53,7 +65,7 @@ export default function UserReserves() {
               <Heading size="sm">
                 {formatBalance(
                   userReserves?.formattedReserves.totalLiquidityUSD,
-                  "USD",
+                  "USD"
                 )}
               </Heading>
             </Box>
@@ -64,7 +76,7 @@ export default function UserReserves() {
               <Heading size="sm">
                 {formatBalance(
                   userReserves?.formattedReserves.totalBorrowsUSD,
-                  "USD",
+                  "USD"
                 )}
               </Heading>
             </Box>
@@ -75,7 +87,7 @@ export default function UserReserves() {
               <Heading size="sm">
                 {formatBalance(
                   userReserves?.formattedReserves.netWorthUSD,
-                  "USD",
+                  "USD"
                 )}
               </Heading>
             </Box>

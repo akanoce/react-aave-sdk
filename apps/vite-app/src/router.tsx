@@ -1,7 +1,7 @@
 import { Outlet, createBrowserRouter, Navigate } from "react-router-dom";
 import { Container, HStack } from "@chakra-ui/react";
 import { Navbar } from "./components/Navbar";
-import { Reserves } from "./pages/Reserves";
+import Reserves from "./pages/Reserves";
 import UserReserves from "./pages/UserReserves";
 import { DesktopSidebar } from "./components/Sidebar/DesktopSidebar";
 import { ROUTES } from "./routes";

@@ -11,6 +11,7 @@ import { DesktopSidebar } from "@/components/DesktopSidebar";
 import { config } from "@/lib/wagmi-config";
 import { useSelectedNetwork } from "@/lib/store";
 import { useEthersProvider } from "@/hooks/useEthersProvider";
+import { ConnectKitProvider } from "connectkit";
 
 function Interface({
   children,
@@ -46,7 +47,9 @@ export default function RootLayout({
             <WagmiProvider config={config}>
               <QueryClientProvider client={queryClient}>
                 <ReactQueryDevtools initialIsOpen={false} />
-                <Interface>{children}</Interface>
+                <ConnectKitProvider>
+                  <Interface>{children}</Interface>
+                </ConnectKitProvider>
               </QueryClientProvider>
             </WagmiProvider>
           </ChakraProvider>

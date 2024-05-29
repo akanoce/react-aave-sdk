@@ -5,3 +5,4 @@ export * from "./useUserReservesIncentives/useUserReservesIncentives";
 export * from "./useSupply/useSupply";
 export * from "./useWithdraw/useWithdraw";
 export * from "./useRepay/useRepay";
+export * from "./useBorrow/useBorrow";
