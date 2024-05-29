@@ -1,19 +1,19 @@
-import { Pool, EthereumTransactionTypeExtended } from "@aave/contract-helpers";
 import {
-  LPSignERC20ApprovalType,
-  LPSupplyParamsType,
-} from "@aave/contract-helpers/dist/esm/v3-pool-contract/lendingPoolTypes";
-import dayjs from "dayjs";
+  Pool,
+  EthereumTransactionTypeExtended,
+  InterestRate,
+} from "@aave/contract-helpers";
+import { LPRepayParamsType } from "@aave/contract-helpers/dist/esm/v3-pool-contract/lendingPoolTypes";
 import { WalletClient } from "viem";
 import { useMutation } from "@tanstack/react-query";
 import { useAaveContracts } from "../../providers/AaveContractsProvider";
 import { submitTransaction } from "../../utils/sendTransaction";
 
-export const createWithdrawTxs = async (
+export const createRepayTxs = async (
   pool: Pool,
-  data: LPSupplyParamsType,
+  data: LPRepayParamsType,
 ): Promise<EthereumTransactionTypeExtended[]> => {
-  const txs: EthereumTransactionTypeExtended[] = await pool.withdraw(data);
+  const txs: EthereumTransactionTypeExtended[] = await pool.repay(data);
   return txs;
 };
 
@@ -21,27 +21,27 @@ type Props = {
   signer: WalletClient;
 };
 
-type WithdrawAsset = {
+type RepayAsset = {
   amount: string;
   reserve: string;
 };
 
-export const useWithdraw = ({ signer }: Props) => {
+export const useRepay = ({ signer }: Props) => {
   const { poolContract } = useAaveContracts();
   const supplyAsset = async ({
     amount,
     reserve,
-  }: WithdrawAsset): Promise<`0x${string}`[]> => {
+  }: RepayAsset): Promise<`0x${string}`[]> => {
     if (!poolContract) throw new Error("Pool contract not found");
 
     if (!signer.account) throw new Error("Signer account not found");
-    const data: LPSignERC20ApprovalType = {
+    const data: LPRepayParamsType = {
       amount,
       user: signer.account.address,
+      interestRateMode: InterestRate.Variable,
       reserve,
-      deadline: dayjs().add(1, "day").unix().toString(),
     };
-    const withdrawTxs = await createWithdrawTxs(poolContract, data);
+    const withdrawTxs = await createRepayTxs(poolContract, data);
     if (!withdrawTxs) throw new Error("Supply transactions not found");
     const result = await submitTransaction({ signer, txs: withdrawTxs });
     return result;
