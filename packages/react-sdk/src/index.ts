@@ -9,6 +9,7 @@ import {
   getUserReservesIncentivesQueryKey,
   useSupply,
   useWithdraw,
+  useRepay,
   useBorrow,
   type GetReservesResponse,
   type GetUserReservesResponse,
@@ -39,6 +40,7 @@ export {
   useUserReservesIncentives,
   useSupply,
   useWithdraw,
+  useRepay,
   supportedNetworks,
 };
 

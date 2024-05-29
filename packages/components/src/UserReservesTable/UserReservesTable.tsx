@@ -19,6 +19,7 @@ import { useWalletClient } from "wagmi";
 import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
 import { SupplyButton } from "./SupplyButton";
 import { WithdrawButton } from "./WithdrawButton";
+import { RepayButton } from "./RepayButton";
 import { BorrowButton } from "../BorrowButton/BorrowButton";
 
 type Props = {
@@ -62,11 +63,20 @@ export const UserReservesTable: React.FC<Props> = ({
                           maxAmount="1"
                           reserveAddress={userReserve.reserve.underlyingAsset}
                         />
-                        <WithdrawButton
-                          signer={signer}
-                          maxAmount="1"
-                          reserveAddress={userReserve.reserve.underlyingAsset}
-                        />
+                        {Number(userReserve.underlyingBalance) > 0 && (
+                          <WithdrawButton
+                            signer={signer}
+                            maxAmount={userReserve.underlyingBalance}
+                            reserveAddress={userReserve.reserve.underlyingAsset}
+                          />
+                        )}
+                        {Number(userReserve.totalBorrows) > 0 && (
+                          <RepayButton
+                            signer={signer}
+                            maxAmount={userReserve.totalBorrows}
+                            reserveAddress={userReserve.reserve.underlyingAsset}
+                          />
+                        )}
                         <BorrowButton
                           signer={signer}
                           formattedUserSummary={userReserves}
@@ -79,6 +89,7 @@ export const UserReservesTable: React.FC<Props> = ({
                   </HStack>
                 </Td>
                 <Td>
+                  {" "}
                   <HStack spacing={2}>
                     <Image
                       src={
