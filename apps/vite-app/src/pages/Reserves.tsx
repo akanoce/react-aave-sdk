@@ -13,7 +13,7 @@ import {
 import { ReservesTable } from "@repo/components";
 import { useMemo } from "react";
 
-export const Reserves = () => {
+export default function Reserves() {
   const { data: reserves, isLoading: reservesLoading } = useReserves();
 
   const totalLiquidity = useMemo(
@@ -83,4 +83,4 @@ export const Reserves = () => {
       </CardBody>
     </Card>
   );
-};
+}

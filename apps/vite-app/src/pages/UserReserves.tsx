@@ -13,14 +13,27 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { useAccount, useWalletClient } from "wagmi";
+import { useAccount } from "wagmi";
 
 export default function UserReserves() {
-  const { data: signer } = useWalletClient();
   const { address } = useAccount();
 
   const { data: userReserves, isLoading: reservesLoading } =
     useUserReserves(address);
+
+  if (!address)
+    return (
+      <Card w="full">
+        <CardHeader>
+          <Heading size="md">Connect your wallet first</Heading>
+        </CardHeader>
+        <CardBody>
+          <Text>
+            To view your user reserves, please connect your wallet first.
+          </Text>
+        </CardBody>
+      </Card>
+    );
 
   if (reservesLoading)
     return (
