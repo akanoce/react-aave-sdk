@@ -28,10 +28,9 @@ export const DesktopSidebar = () => {
       left="0"
       h="full"
       w="64"
-      bg="gray.800"
-      color="white"
+      bg="--body-bg"
       borderRightWidth="1px"
-      borderRightColor="gray.700"
+      borderRightColor="gray"
       overflowY="auto"
       flexShrink={0}
       display={["none", "block"]}
