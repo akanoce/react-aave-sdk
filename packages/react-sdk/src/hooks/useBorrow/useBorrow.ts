@@ -38,6 +38,7 @@ type BorrowAssetProps = {
 
 /**
  * hook to borrow an asset from the an aave v3 pool
+ * You must have a collateralized (i.e aTokens) asset to borrow an asset
  * @param signer the wallet client
  * @returns the mutation object to borrow an asset
  */
