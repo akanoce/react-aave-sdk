@@ -24,7 +24,7 @@
     "next-images": "^1.8.5",
     "react": "^18",
     "react-dom": "^18",
-    "viem": "^2.9.31",
+    "viem": "2.9.31",
     "wagmi": "^2.9.3",
     "zustand": "^4.5.2"
   },

@@ -1,7 +1,7 @@
 import { Heading, HStack } from "@chakra-ui/react";
 import { NetworkSelect } from "./NetworkSelect";
 import { ThemeSwitcher } from "@repo/components";
-
+import { ConnectKitButton } from "connectkit";
 
 export const Navbar = () => {
   return (
@@ -10,6 +10,7 @@ export const Navbar = () => {
       <HStack spacing={2}>
         <ThemeSwitcher />
         <NetworkSelect />
+        <ConnectKitButton />;
       </HStack>
     </HStack>
   );
