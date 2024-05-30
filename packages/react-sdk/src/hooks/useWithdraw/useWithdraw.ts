@@ -9,7 +9,16 @@ import { submitTransaction } from "../../utils/sendTransaction";
  *  Create withdraw txs for Aave V3 pool
  * @param pool  The pool contract
  * @param data  The data for the withdraw tx {@link LPWithdrawParamsType|LPWithdrawParamsType}
+ * @param data.reserve The ethereum address of the reserve
+ * @param data.amount The amount to be withdrawn
  * @returns  The withdraw txs - {@link EthereumTransactionTypeExtended|EthereumTransactionTypeExtended[]}
+ * @example
+ * ```ts
+ * const txs = await createWithdrawTxs(poolContract, {
+ * reserve: "0xReserveAddress",
+ * amount: "1000000000000000000", // 1 ETH in wei
+ * });
+ * ```
  */
 export const createWithdrawTxs = async (
   pool: Pool,
@@ -27,6 +36,16 @@ type Props = {
  *  Withdraws the underlying asset of an aToken asset.
  * @param signer the wallet client
  * @returns  the mutation object to withdraw an asset
+ * @example
+ * ```tsx
+ * const { mutate } = useWithdraw({ signer });
+ * mutate(
+ *  {
+ *   reserve: "0xReserveAddress",
+ *  amount: "1000000000000000000", // 1 ETH in wei
+ * },
+ * );
+ * ```
  */
 export const useWithdraw = ({ signer }: Props) => {
   const { poolContract } = useAaveContracts();
