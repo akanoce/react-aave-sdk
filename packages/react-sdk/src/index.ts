@@ -7,10 +7,13 @@ import {
   getReservesIncentivesQueryKey,
   getUserReservesQueryKey,
   getUserReservesIncentivesQueryKey,
+  useBorrow,
   useSupply,
+  useSupplyWithPermit,
   useWithdraw,
   useRepay,
-  useBorrow,
+  useRepayWithPermit,
+  useSignERC20Approval,
   type GetReservesResponse,
   type GetUserReservesResponse,
 } from "./hooks";
@@ -39,8 +42,11 @@ export {
   useUserReserves,
   useUserReservesIncentives,
   useSupply,
+  useSupplyWithPermit,
   useWithdraw,
   useRepay,
+  useRepayWithPermit,
+  useSignERC20Approval,
   supportedNetworks,
 };
 
