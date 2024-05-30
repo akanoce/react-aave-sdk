@@ -21,7 +21,7 @@ export type GetReservesResponse = {
  */
 export const getReserves = async (
   poolDataProviderContract: UiPoolDataProvider,
-  chainAddressBook: SupportedAddressBook,
+  chainAddressBook: SupportedAddressBook
 ): Promise<GetReservesResponse> => {
   // Object containing array of pool reserves and market base currency data
   // { reservesArray, baseCurrencyData }
@@ -49,8 +49,12 @@ export const getReservesQueryKey = (chainId: string | number) => [
 ];
 
 /**
- *  Fetches pool reserves and market base currency data from the Aave V3 UI Pool Data Provider contract
+ * Fetches pool reserves and market base currency data from the Aave V3 UI Pool Data Provider contract
  * @returns  Query object containing array of pool reserves and market base currency data
+ * @example
+ * ```tsx
+ * const { data } = useReserves();
+ * ```
  */
 export const useReserves = () => {
   const { poolDataProviderContract, chainAddressBook } = useAaveContracts();

@@ -23,6 +23,8 @@ export const createSetUsageAsCollateralTxs = async (
   return txs;
 };
 
+type SetUsageAsCollateralData = Omit<LPSetUsageAsCollateral, "user">;
+
 type Props = {
   signer: WalletClient;
 };
@@ -31,6 +33,16 @@ type Props = {
  * hook to allow depositors to enable or disable a specific deposit as collateral
  * @param signer the wallet client
  * @returns the mutation object to enable or disable a specific deposit as collateral
+ * @example
+ * ```tsx
+ * const { mutate } = useSetUsageAsCollateral({ signer });
+ * mutate(
+ * {
+ * reserve: "0xReserveAddress", // The ethereum address of the reserve
+ * usageAsCollateral: true, // Boolean, true if the user wants to use the deposit as collateral, false otherwise
+ * },
+ * );
+ * ```
  */
 export const useSetUsageAsCollateral = ({ signer }: Props) => {
   const { poolContract } = useAaveContracts();
@@ -39,14 +51,13 @@ export const useSetUsageAsCollateral = ({ signer }: Props) => {
    *
    * @param pool  the pool contract
    * @param data  the data to set usage as collateral
-   * @param data.user The ethereum address that will make the deposit
    * @param data.reserve The ethereum address of the reserve
    * @param data.usageAsCollateral Boolean, true if the user wants to use the deposit as collateral, false otherwise
    * @returns the transactions hashes - `0x${string}[]`
    */
 
   const setUsageAsCollateral = async (
-    data: LPSetUsageAsCollateral
+    data: SetUsageAsCollateralData
   ): Promise<`0x${string}`[]> => {
     if (!poolContract) throw new Error("Pool contract not found");
 

@@ -4,6 +4,7 @@ import { WalletClient } from "viem";
 import { useMutation } from "@tanstack/react-query";
 import { useAaveContracts } from "../../providers/AaveContractsProvider";
 import { ethers } from "ethers";
+import dayjs from "dayjs";
 
 /**
  *  This method is used to generate the raw signature data to be signed by the user.
@@ -27,6 +28,13 @@ export const createERC20ApprovaSignature = async (
   return dataToSign;
 };
 
+type SignERC20ApprovalData = Omit<
+  LPSignERC20ApprovalType,
+  "user" | "deadline"
+> & {
+  deadline?: string;
+};
+
 type Props = {
   signer: WalletClient;
 };
@@ -41,6 +49,16 @@ type Props = {
  *  You can check the {@link https://github.com/aave/interface/blob/main/src/ui-config/permitConfig.ts} for an updated list of supported tokens by network.
  * @param signer The wallet client
  * @returns  The mutation object to sign the ERC20 approval
+ * @example
+ * ```tsx
+ * const { mutate } = useSignERC20Approval({ signer });
+ * mutate(
+ * {
+ * reserve: "0xReserveAddress", // The ethereum address of the reserve (underlyingAsset)
+ * amount: "2.5", // The human readable (i.e 2.5) amount to deposit
+ * deadline: 0, // Expiration of signature in seconds, defaults to 1 day
+ * },
+ *
  */
 export const useSignERC20Approval = ({ signer }: Props) => {
   const { poolContract } = useAaveContracts();
@@ -53,15 +71,17 @@ export const useSignERC20Approval = ({ signer }: Props) => {
    * @param data  - The data to sign for the ERC20 approval {@link LPSignERC20ApprovalType|LPSignERC20ApprovalType}
    * @returns The signature for the ERC20 approval
    */
-  const signERC20Approval = async (
-    data: Omit<LPSignERC20ApprovalType, "user">
-  ): Promise<string> => {
+  const signERC20Approval = async ({
+    deadline = dayjs().add(1, "day").unix().toString(),
+    ...data
+  }: SignERC20ApprovalData): Promise<string> => {
     if (!poolContract) throw new Error("Pool contract not found");
 
     if (!signer.account) throw new Error("Signer account not found");
 
     const dataToSign = await createERC20ApprovaSignature(poolContract, {
       ...data,
+      deadline,
       user: signer.account.address,
     });
     if (!dataToSign) throw new Error("signature not found");
