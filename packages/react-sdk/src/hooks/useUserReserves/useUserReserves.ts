@@ -40,7 +40,7 @@ export const getUserReserves = async (
   poolDataProviderContract: UiPoolDataProvider,
   chainAddressBook: SupportedAddressBook,
   user: string,
-  reservesResponse: GetReservesResponse,
+  reservesResponse: GetReservesResponse
 ): Promise<GetUserReservesResponse> => {
   // Object containing array or users aave positions and active eMode category
   // { userReserves, userEmodeCategoryId }
@@ -77,6 +77,10 @@ export const getUserReservesQueryKey = (chainId: number, user?: string) => [
  * see {@link getUserReserves}
  * @param user
  * @returns Query object containing array of pool reserves and market base currency data
+ * @example
+ * ```tsx
+ * const { data } = useUserReserves({ user });
+ * ```
  */
 export const useUserReserves = (user?: string) => {
   const { poolDataProviderContract, chainAddressBook } = useAaveContracts();
@@ -95,7 +99,7 @@ export const useUserReserves = (user?: string) => {
         poolDataProviderContract,
         chainAddressBook,
         user,
-        reserves,
+        reserves
       );
     },
     enabled,

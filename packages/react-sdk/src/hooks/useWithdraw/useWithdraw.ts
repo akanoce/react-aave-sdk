@@ -15,8 +15,8 @@ import { submitTransaction } from "../../utils/sendTransaction";
  * @example
  * ```ts
  * const txs = await createWithdrawTxs(poolContract, {
- * reserve: "0xReserveAddress",
- * amount: "1000000000000000000", // 1 ETH in wei
+ * reserve: "0xReserveAddress", // The ethereum address of the reserve (underlyingAsset)
+ * amount: "2.5", // The human readable (i.e 2.5) amount to withdraw
  * });
  * ```
  */
@@ -28,6 +28,7 @@ export const createWithdrawTxs = async (
   return txs;
 };
 
+type WithdrawData = Omit<LPWithdrawParamsType, "user">;
 type Props = {
   signer: WalletClient;
 };
@@ -41,8 +42,9 @@ type Props = {
  * const { mutate } = useWithdraw({ signer });
  * mutate(
  *  {
- *   reserve: "0xReserveAddress",
- *  amount: "1000000000000000000", // 1 ETH in wei
+ *  reserve: "0xReserveAddress", // The ethereum address of the reserve (underlyingAsset)
+ *  amount: "2.5", // The human readable (i.e 2.5) amount to withdraw
+ *  onBehalfOf: "0xOtherAddress", // The ethereum address for which user is swapping. It will default to the user address
  * },
  * );
  * ```
@@ -56,7 +58,7 @@ export const useWithdraw = ({ signer }: Props) => {
    * @returns  An array of transaction hashes - `0x${string}[]`
    */
   const withdrawAsset = async (
-    data: Omit<LPWithdrawParamsType, "user">
+    data: WithdrawData
   ): Promise<`0x${string}`[]> => {
     if (!poolContract) throw new Error("Pool contract not found");
 

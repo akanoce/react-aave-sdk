@@ -29,10 +29,7 @@ type Props = {
   signer: WalletClient;
 };
 
-type BorrowAssetProps = {
-  amount: string;
-  reserve: string;
-  onBehalfOf?: string;
+type BorrowData = Omit<LPBorrowParamsType, "user" | "interestRateMode"> & {
   interestRateMode?: InterestRate;
 };
 
@@ -41,6 +38,19 @@ type BorrowAssetProps = {
  * You must have a collateralized (i.e aTokens) asset to borrow an asset
  * @param signer the wallet client
  * @returns the mutation object to borrow an asset
+ * @example
+ * ```tsx
+ * const { mutate } = useBorrow({ signer });
+ * mutate(
+ * {
+ * reserve: "0xReserveAddress", // The ethereum address of the reserve (underlyingAsset)
+ * amount: "2.5", // The human readable (i.e 2.5) amount to borrow
+ * Optional: onBehalfOf?: "0xOtherAddress", //The ethereum address for which user is swapping. It will default to the user address
+ * Optional: interestRateMode?: InterestRate.Variable, // The interest rate mode at which the user wants to borrow - default is variable
+ * Optional: referralCode?: "0", Integrators are assigned a referral code and can potentially receive rewards. It defaults to 0 (no referrer)
+ * },
+ * );
+ * ```
  */
 export const useBorrow = ({ signer }: Props) => {
   const { poolContract } = useAaveContracts();
@@ -49,27 +59,24 @@ export const useBorrow = ({ signer }: Props) => {
    *  Borrow an asset from the pool to an aave v3 pool
    * @param amount - The amount to be borrowed
    * @param reserve - The ethereum address of the reserve
-   * @param onBehalfOf - The ethereum address for which user is borrowing. It will default to the user address
-   * @param interestRateMode - The interest rate mode at which the user wants to borrow - default is variable
+   * @param [onBehalfOf] - The ethereum address for which user is borrowing. It will default to the user address
+   * @param [interestRateMode] - The interest rate mode at which the user wants to borrow - default is variable
+   * @param [referralCode] - Integrators are assigned a referral code and can potentially receive rewards. It defaults to 0 (no referrer)
    * @returns  An array of transaction hashes - `0x${string}[]`
    */
   const borrowAsset = async ({
-    amount,
-    reserve,
-    onBehalfOf,
     interestRateMode = InterestRate.Variable,
-  }: BorrowAssetProps): Promise<`0x${string}`[]> => {
+    ...data
+  }: BorrowData): Promise<`0x${string}`[]> => {
     if (!poolContract) throw new Error("Pool contract not found");
 
     if (!signer.account) throw new Error("Signer account not found");
-    const data: LPBorrowParamsType = {
-      amount: amount,
+
+    const supplyTxs = await createBorrowTx(poolContract, {
+      ...data,
       user: signer.account.address,
-      reserve,
-      onBehalfOf,
       interestRateMode,
-    };
-    const supplyTxs = await createBorrowTx(poolContract, data);
+    });
     if (!supplyTxs) throw new Error("Borrow transactions not found");
     const result = await submitTransaction({ signer, txs: supplyTxs });
     return result;

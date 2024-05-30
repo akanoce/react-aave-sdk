@@ -68,6 +68,10 @@ export const getReservesIncentivesQueryKey = (chainId: string | number) => [
  * see {@link getUserReserves}
  * @param user
  * @returns Query object containing array of pool reserves and market base currency data
+ * @example
+ * ```tsx
+ * const { data } = useReservesIncentives({ user });
+ * ```
  */
 export const useReservesIncentives = () => {
   const {

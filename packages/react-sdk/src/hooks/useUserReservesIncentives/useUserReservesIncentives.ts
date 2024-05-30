@@ -70,7 +70,11 @@ export const getUserReservesIncentivesQueryKey = (
  * and user reserves incentives from the Aave V3 UI Incentive Data Provider contract
  * see {@link getUserReservesIncentives}
  * @param user
- * @returns
+ * @returns Query object containing array of pool reserves and market base currency data
+ * @example
+ * ```tsx
+ * const { data } = useUserReservesIncentives({ user });
+ * ```
  */
 export const useUserReservesIncentives = (user?: string) => {
   const {
