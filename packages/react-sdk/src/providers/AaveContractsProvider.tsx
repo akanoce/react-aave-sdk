@@ -1,5 +1,6 @@
 import {
   Pool,
+  PoolBundle,
   UiIncentiveDataProvider,
   UiPoolDataProvider,
 } from "@aave/contract-helpers";
@@ -8,11 +9,23 @@ import { providers } from "ethers";
 
 import { SupportedAddressBook, getAddressBookFromChainid } from "../utils";
 
+/**
+ * Context to provide Aave V3 contracts to the app
+ * @param children
+ * @param provider The ethers provider
+ * @param poolDataProviderContract The Aave V3 UI Pool Data Provider contract
+ * @param incentiveDataProviderContract The Aave V3 UI Incentive Data Provider contract
+ * @param chainAddressBook The Aave V3 address book for the current chain
+ * @param poolContract The Aave V3 pool contract
+ * @param poolBundleContract The Aave V3 pool bundle contract
+ */
 interface CurrentUserContextType {
+  provider: providers.Provider;
   poolDataProviderContract: UiPoolDataProvider | null;
   incentiveDataProviderContract: UiIncentiveDataProvider | null;
   chainAddressBook: SupportedAddressBook;
   poolContract: Pool | null;
+  poolBundleContract: PoolBundle | null;
 }
 
 const AaveContractsContext = createContext<CurrentUserContextType | null>(null);
@@ -22,6 +35,13 @@ type Props = {
   provider: providers.Provider;
   chainId: number;
 };
+/**
+ *
+ * @param children - The children of the provider
+ * @param provider - The ethers provider
+ * @param chainId - The chain id
+ * @returns The Aave V3 contracts provider
+ */
 export const AaveContractsProvider = ({
   children,
   provider,
@@ -29,7 +49,7 @@ export const AaveContractsProvider = ({
 }: Props) => {
   const chainAddressBook = useMemo(
     () => getAddressBookFromChainid(chainId),
-    [chainId],
+    [chainId]
   );
 
   // View contract used to fetch all reserves data (including market base currency data), and user reserves
@@ -43,7 +63,7 @@ export const AaveContractsProvider = ({
             chainId: chainAddressBook.CHAIN_ID,
           })
         : null,
-    [provider, chainAddressBook],
+    [provider, chainAddressBook]
   );
 
   // View contract used to fetch all reserve incentives (APRs), and user incentives
@@ -58,7 +78,7 @@ export const AaveContractsProvider = ({
             chainId: chainAddressBook.CHAIN_ID,
           })
         : null,
-    [provider, chainAddressBook],
+    [provider, chainAddressBook]
   );
 
   const poolContract = useMemo(
@@ -69,22 +89,37 @@ export const AaveContractsProvider = ({
             WETH_GATEWAY: chainAddressBook.WETH_GATEWAY, // Goerli GHO market
           })
         : null,
-    [provider, chainAddressBook],
+    [provider, chainAddressBook]
+  );
+
+  const poolBundleContract = useMemo(
+    () =>
+      provider
+        ? new PoolBundle(provider, {
+            POOL: chainAddressBook.POOL, // Goerli GHO market
+            WETH_GATEWAY: chainAddressBook.WETH_GATEWAY, // Goerli GHO market
+          })
+        : null,
+    [provider, chainAddressBook]
   );
 
   const data = useMemo(
     () => ({
+      provider,
       poolDataProviderContract,
       incentiveDataProviderContract,
       chainAddressBook,
       poolContract,
+      poolBundleContract,
     }),
     [
+      provider,
       poolDataProviderContract,
       incentiveDataProviderContract,
       chainAddressBook,
       poolContract,
-    ],
+      poolBundleContract,
+    ]
   );
   return (
     <AaveContractsContext.Provider value={data}>
@@ -98,7 +133,7 @@ export const useAaveContracts = () => {
 
   if (!context)
     throw new Error(
-      "AaveContractsContext has to be used within <AaveContractsContext.Provider>",
+      "AaveContractsContext has to be used within <AaveContractsContext.Provider>"
     );
 
   return context;
