@@ -14,6 +14,7 @@ import {
   useRepay,
   useRepayWithPermit,
   useSignERC20Approval,
+  useSetUsageAsCollateral,
   type GetReservesResponse,
   type GetUserReservesResponse,
 } from "./hooks";
@@ -47,6 +48,7 @@ export {
   useRepay,
   useRepayWithPermit,
   useSignERC20Approval,
+  useSetUsageAsCollateral,
   supportedNetworks,
 };
 
