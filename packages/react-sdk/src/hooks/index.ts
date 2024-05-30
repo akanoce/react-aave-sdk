@@ -6,3 +6,6 @@ export * from "./useSupply/useSupply";
 export * from "./useWithdraw/useWithdraw";
 export * from "./useRepay/useRepay";
 export * from "./useBorrow/useBorrow";
+export * from "./useSignERC20Approval/useSignERC20Approval";
+export * from "./useSupplyWithPermit/useSupplyWithPermit";
+export * from "./useRepayWithPermit/useRepayWithPermit";
