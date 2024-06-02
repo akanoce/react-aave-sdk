@@ -33,12 +33,12 @@ function Interface({
   );
 }
 
+const queryClient = new QueryClient();
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [queryClient] = useState(new QueryClient());
   return (
     <html lang="en">
       <body>

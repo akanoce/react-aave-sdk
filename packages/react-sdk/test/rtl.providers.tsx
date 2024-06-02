@@ -1,5 +1,6 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { sepolia } from "viem/chains";
 import { AaveContractsProvider } from "../src";
 import { ethers } from "ethers";

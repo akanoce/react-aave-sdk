@@ -25,8 +25,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.0",
-    "viem": "2.9.31",
-    "wagmi": "^2.9.7",
+    "viem": "2.x",
+    "wagmi": "2.x",
     "zustand": "^4.5.2"
   },
   "devDependencies": {
