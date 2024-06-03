@@ -10,4 +10,5 @@ const customRenderHook = <Result, Props>(
     ...options,
   });
 
+  export * from "@testing-library/react";
 export { customRenderHook as renderHook };
