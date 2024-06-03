@@ -28,3 +28,17 @@ export const AllTheProviders = ({
     </QueryClientProvider>
   );
 };
+
+export const AllTheProvidersAaveNotActive = ({
+    children,
+  }: {
+    children: React.ReactNode;
+  }) => {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <AaveContractsProvider provider={undefined as any} chainId={chainId}>
+          {children}
+        </AaveContractsProvider>
+      </QueryClientProvider>
+    );
+  };

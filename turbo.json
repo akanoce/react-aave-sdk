@@ -15,6 +15,9 @@
     },
     "test": {
       "cache": false
-    }
+    },
+    "test:coverage": {
+        "cache": false
+      }
   }
 }

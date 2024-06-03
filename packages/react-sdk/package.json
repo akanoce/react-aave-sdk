@@ -21,6 +21,7 @@
     "lint": "tsc --noEmit && eslint src --fix --ext .js,.jsx,.ts,.tsx",
     "purge": "yarn clean && rm -rf node_modules",
     "test": "vitest",
+    "test:coverage": "vitest --coverage",
     "watch": "yarn build --watch"
   },
   "dependencies": {
@@ -44,6 +45,7 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.0",
+    "@vitest/coverage-istanbul": "^1.6.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-prettier": "^9.1.0",

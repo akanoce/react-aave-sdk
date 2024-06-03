@@ -52,6 +52,8 @@ export const AaveContractsProvider = ({
     [chainId]
   );
 
+
+
   // View contract used to fetch all reserves data (including market base currency data), and user reserves
   // Using Aave V3 Eth Mainnet address for demo
   const poolDataProviderContract = useMemo(
