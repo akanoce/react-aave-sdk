@@ -6,7 +6,7 @@ import { renderHook as defaultRenderHook, waitFor as defaultWaitFor } from "@tes
 
 const testAddress = "0x5AB3CC5811AE2080FE4A17335a48d361413c2112"
 
-describe("useReserves", () => {
+describe("useUserReserves", () => {
     beforeEach(() => {
         vi.resetAllMocks()
         vi.clearAllMocks()

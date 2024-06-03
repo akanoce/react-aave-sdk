@@ -1,5 +1,5 @@
 export const mockUserReservesHookCall = {
-    formatted:{
+    formatted: {
         //define it with values as expect.any(String) with the correct type
         expectedUserReserveData: {
             id: expect.any(String),
@@ -54,7 +54,7 @@ export const mockUserReservesHookCall = {
                 eModeCategoryId: expect.any(Number),
                 borrowCap: expect.any(String),
                 supplyCap: expect.any(String),
-                eModeLtv : expect.any(Number),
+                eModeLtv: expect.any(Number),
                 eModeLiquidationThreshold: expect.any(Number),
                 eModeLiquidationBonus: expect.any(Number),
                 eModePriceSource: expect.any(String),
@@ -133,9 +133,9 @@ export const mockUserReservesHookCall = {
             "healthFactor": expect.any(String),
             "isInIsolationMode": expect.any(Boolean),
             //TODO: match undefined + string.
-            "isolatedReserve":  undefined
+            "isolatedReserve": undefined
 
 
         }
     }
- }
+}

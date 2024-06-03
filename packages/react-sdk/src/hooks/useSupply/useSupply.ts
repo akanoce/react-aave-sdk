@@ -84,6 +84,7 @@ export const useSupply = ({ signer }: Props) => {
       ...data,
       user: signer.account.address,
     });
+    console.log("supplytxs",supplyTxs);
     if (!supplyTxs) throw new Error("Supply transactions not found");
     const result = await submitTransaction({ signer, txs: supplyTxs });
     return result;
