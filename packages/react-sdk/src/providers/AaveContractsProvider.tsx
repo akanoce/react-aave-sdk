@@ -28,7 +28,8 @@ interface CurrentUserContextType {
   poolBundleContract: PoolBundle | null;
 }
 
-const AaveContractsContext = createContext<CurrentUserContextType | null>(null);
+export const AaveContractsContext =
+  createContext<CurrentUserContextType | null>(null);
 
 type Props = {
   children: React.ReactNode;

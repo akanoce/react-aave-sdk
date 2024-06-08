@@ -4,7 +4,7 @@ import { WalletClient } from "viem";
 import { useMutation } from "@tanstack/react-query";
 import { ethers } from "ethers";
 import dayjs from "dayjs";
-import { useAaveContracts } from "../../providers/AaveContractsProvider";
+import { useAaveContracts } from "@/providers";
 
 /**
  *  This method is used to generate the raw signature data to be signed by the user.

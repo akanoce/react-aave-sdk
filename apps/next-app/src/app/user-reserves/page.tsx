@@ -65,7 +65,7 @@ export default function UserReserves() {
               <Heading size="sm">
                 {formatBalance(
                   userReserves?.formattedReserves.totalLiquidityUSD,
-                  "USD"
+                  "USD",
                 )}
               </Heading>
             </Box>
@@ -76,7 +76,7 @@ export default function UserReserves() {
               <Heading size="sm">
                 {formatBalance(
                   userReserves?.formattedReserves.totalBorrowsUSD,
-                  "USD"
+                  "USD",
                 )}
               </Heading>
             </Box>
@@ -87,7 +87,7 @@ export default function UserReserves() {
               <Heading size="sm">
                 {formatBalance(
                   userReserves?.formattedReserves.netWorthUSD,
-                  "USD"
+                  "USD",
                 )}
               </Heading>
             </Box>

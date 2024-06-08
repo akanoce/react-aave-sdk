@@ -34,14 +34,14 @@ export const BorrowButton: React.FC<Props> = ({
   formattedUserSummary,
   signer,
 }) => {
-  const availableToBorrowUsd = new BigNumber(
-    formattedUserSummary?.availableBorrowsUSD ?? 0,
-  );
-  const reservePriceInUsd = new BigNumber(reserve.priceInUSD ?? 0);
   const availableToBorrowInReserve = useMemo(() => {
+    const availableToBorrowUsd = new BigNumber(
+      formattedUserSummary?.availableBorrowsUSD ?? 0,
+    );
+    const reservePriceInUsd = new BigNumber(reserve.priceInUSD ?? 0);
     if (!availableToBorrowUsd || !reservePriceInUsd) return 0;
     return availableToBorrowUsd.div(reservePriceInUsd);
-  }, [availableToBorrowUsd, reservePriceInUsd]);
+  }, [formattedUserSummary, reserve]);
 
   const [amount, setAmount] = useState("0");
 

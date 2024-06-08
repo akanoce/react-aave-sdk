@@ -1,0 +1,5 @@
+node_modules/*
+dist/*
+tsup.config.ts
+**/test/**
+vite.config.ts

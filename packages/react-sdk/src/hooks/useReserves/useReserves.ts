@@ -6,8 +6,8 @@ import {
 import { FormatReserveUSDResponse, formatReserves } from "@aave/math-utils";
 import { useQuery } from "@tanstack/react-query";
 import dayjs from "dayjs";
-import { useAaveContracts } from "../../providers/AaveContractsProvider";
-import { SupportedAddressBook } from "../../utils";
+import { useAaveContracts } from "@/providers";
+import { SupportedAddressBook } from "@/utils";
 
 export type GetReservesResponse = {
   reserves: ReservesDataHumanized;

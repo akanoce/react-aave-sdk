@@ -3,8 +3,8 @@ import { LPSupplyWithPermitType } from "@aave/contract-helpers/dist/esm/v3-pool-
 import { WalletClient } from "viem";
 import { useMutation } from "@tanstack/react-query";
 import dayjs from "dayjs";
-import { useAaveContracts } from "../../providers/AaveContractsProvider";
-import { submitTransaction } from "../../utils/sendTransaction";
+import { useAaveContracts } from "@/providers";
+import { submitTransaction } from "@/utils/sendTransaction";
 import { useSignERC20Approval } from "../useSignERC20Approval/useSignERC20Approval";
 
 /**
