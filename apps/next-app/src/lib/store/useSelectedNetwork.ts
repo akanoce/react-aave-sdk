@@ -16,6 +16,6 @@ export const useSelectedNetwork = create<SelectedNetworkStore>()(
     }),
     {
       name: "SELECTED_NETWORK", // name of the item in the storage (must be unique)
-    }
-  )
+    },
+  ),
 );
