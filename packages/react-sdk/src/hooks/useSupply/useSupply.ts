@@ -28,7 +28,7 @@ import { submitTransaction } from "../../utils/sendTransaction";
  */
 export const createSupplyTxs = async (
   pool: Pool,
-  data: LPSupplyParamsType
+  data: LPSupplyParamsType,
 ): Promise<EthereumTransactionTypeExtended[]> => {
   const txs: EthereumTransactionTypeExtended[] = await pool.supply(data);
   return txs;

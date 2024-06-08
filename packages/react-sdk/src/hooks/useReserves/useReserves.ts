@@ -21,7 +21,7 @@ export type GetReservesResponse = {
  */
 export const getReserves = async (
   poolDataProviderContract: UiPoolDataProvider,
-  chainAddressBook: SupportedAddressBook
+  chainAddressBook: SupportedAddressBook,
 ): Promise<GetReservesResponse> => {
   // Object containing array of pool reserves and market base currency data
   // { reservesArray, baseCurrencyData }

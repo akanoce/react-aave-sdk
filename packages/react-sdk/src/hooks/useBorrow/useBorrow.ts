@@ -19,7 +19,7 @@ import { submitTransaction } from "../../utils/sendTransaction";
  */
 export const createBorrowTx = async (
   pool: Pool,
-  data: LPBorrowParamsType
+  data: LPBorrowParamsType,
 ): Promise<EthereumTransactionTypeExtended[]> => {
   const txs: EthereumTransactionTypeExtended[] = await pool.borrow(data);
   return txs;

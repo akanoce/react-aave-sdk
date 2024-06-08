@@ -22,7 +22,7 @@ import { submitTransaction } from "../../utils/sendTransaction";
  */
 export const createWithdrawTxs = async (
   pool: Pool,
-  data: LPWithdrawParamsType
+  data: LPWithdrawParamsType,
 ): Promise<EthereumTransactionTypeExtended[]> => {
   const txs: EthereumTransactionTypeExtended[] = await pool.withdraw(data);
   return txs;
@@ -58,7 +58,7 @@ export const useWithdraw = ({ signer }: Props) => {
    * @returns  An array of transaction hashes - `0x${string}[]`
    */
   const withdrawAsset = async (
-    data: WithdrawData
+    data: WithdrawData,
   ): Promise<`0x${string}`[]> => {
     if (!poolContract) throw new Error("Pool contract not found");
 

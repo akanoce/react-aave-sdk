@@ -6,10 +6,10 @@ import {
 import { LPRepayWithPermitParamsType } from "@aave/contract-helpers/dist/esm/v3-pool-contract/lendingPoolTypes";
 import { WalletClient } from "viem";
 import { useMutation } from "@tanstack/react-query";
+import dayjs from "dayjs";
 import { useAaveContracts } from "../../providers/AaveContractsProvider";
 import { submitTransaction } from "../../utils/sendTransaction";
 import { useSignERC20Approval } from "../useSignERC20Approval/useSignERC20Approval";
-import dayjs from "dayjs";
 
 /**
  *  Create repay txs for Aave V3 pool
@@ -19,7 +19,7 @@ import dayjs from "dayjs";
  */
 export const createRepayWithPermitTxs = async (
   pool: Pool,
-  data: LPRepayWithPermitParamsType
+  data: LPRepayWithPermitParamsType,
 ): Promise<EthereumTransactionTypeExtended[]> => {
   const txs: EthereumTransactionTypeExtended[] =
     await pool.repayWithPermit(data);

@@ -35,7 +35,7 @@ export const BorrowButton: React.FC<Props> = ({
   signer,
 }) => {
   const availableToBorrowUsd = new BigNumber(
-    formattedUserSummary?.availableBorrowsUSD ?? 0
+    formattedUserSummary?.availableBorrowsUSD ?? 0,
   );
   const reservePriceInUsd = new BigNumber(reserve.priceInUSD ?? 0);
   const availableToBorrowInReserve = useMemo(() => {
@@ -45,7 +45,7 @@ export const BorrowButton: React.FC<Props> = ({
 
   const [amount, setAmount] = useState("0");
 
-  //TODO: support onBehalfOf
+  // TODO: support onBehalfOf
   const borrowMutation = useBorrow({ signer });
 
   const onBorrow = useCallback(async () => {
@@ -107,7 +107,7 @@ export const BorrowButton: React.FC<Props> = ({
               <Button
                 isDisabled={isDisabled}
                 size="sm"
-                alignSelf={"flex-end"}
+                alignSelf="flex-end"
                 colorScheme="purple"
                 isLoading={isLoading}
                 onClick={onBorrow}

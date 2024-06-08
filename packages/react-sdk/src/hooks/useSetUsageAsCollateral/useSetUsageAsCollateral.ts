@@ -16,7 +16,7 @@ import { submitTransaction } from "../../utils/sendTransaction";
  */
 export const createSetUsageAsCollateralTxs = async (
   pool: Pool,
-  data: LPSetUsageAsCollateral
+  data: LPSetUsageAsCollateral,
 ): Promise<EthereumTransactionTypeExtended[]> => {
   const txs: EthereumTransactionTypeExtended[] =
     await pool.setUsageAsCollateral(data);
@@ -57,7 +57,7 @@ export const useSetUsageAsCollateral = ({ signer }: Props) => {
    */
 
   const setUsageAsCollateral = async (
-    data: SetUsageAsCollateralData
+    data: SetUsageAsCollateralData,
   ): Promise<`0x${string}`[]> => {
     if (!poolContract) throw new Error("Pool contract not found");
 

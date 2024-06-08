@@ -11,7 +11,8 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "prepare": "husky",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "publish-packages": "turbo run build lint && changeset version && changeset publish"
   },
   "engines": {
     "node": ">=18"
@@ -26,5 +27,8 @@
     "@commitlint/config-conventional": "^19.2.2",
     "husky": "^9.0.11",
     "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.27.5"
   }
 }

@@ -50,7 +50,7 @@ export const UserReservesTable: React.FC<Props> = ({
             .filter(
               (userReserve) =>
                 Number(userReserve.underlyingBalance) > 0 ||
-                Number(userReserve.totalBorrows) > 0
+                Number(userReserve.totalBorrows) > 0,
             )
             .map((userReserve) => (
               <Tr key={userReserve.reserve.id}>

@@ -17,7 +17,7 @@ import { submitTransaction } from "../../utils/sendTransaction";
  */
 export const createRepayTxs = async (
   pool: Pool,
-  data: LPRepayParamsType
+  data: LPRepayParamsType,
 ): Promise<EthereumTransactionTypeExtended[]> => {
   const txs: EthereumTransactionTypeExtended[] = await pool.repay(data);
   return txs;

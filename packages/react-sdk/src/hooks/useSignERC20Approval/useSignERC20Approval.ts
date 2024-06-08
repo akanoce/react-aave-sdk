@@ -2,9 +2,9 @@ import { Pool } from "@aave/contract-helpers";
 import { LPSignERC20ApprovalType } from "@aave/contract-helpers/dist/esm/v3-pool-contract/lendingPoolTypes";
 import { WalletClient } from "viem";
 import { useMutation } from "@tanstack/react-query";
-import { useAaveContracts } from "../../providers/AaveContractsProvider";
 import { ethers } from "ethers";
 import dayjs from "dayjs";
+import { useAaveContracts } from "../../providers/AaveContractsProvider";
 
 /**
  *  This method is used to generate the raw signature data to be signed by the user.
@@ -16,7 +16,7 @@ import dayjs from "dayjs";
  */
 export const createERC20ApprovaSignature = async (
   pool: Pool,
-  data: LPSignERC20ApprovalType
+  data: LPSignERC20ApprovalType,
 ): Promise<string> => {
   /*
 - @param `user` The ethereum address that will make the deposit 
@@ -63,7 +63,7 @@ type Props = {
 export const useSignERC20Approval = ({ signer }: Props) => {
   const { poolContract } = useAaveContracts();
 
-  //@ts-ignore
+  // @ts-expect-error TODO: definite .d.ts for window.ethereum
   const provider = new ethers.providers.Web3Provider(window.ethereum);
 
   /**

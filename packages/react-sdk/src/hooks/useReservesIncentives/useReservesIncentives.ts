@@ -8,13 +8,13 @@ import {
   formatReservesAndIncentives,
 } from "@aave/math-utils";
 import dayjs from "dayjs";
+import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { SupportedAddressBook } from "../../utils";
 import {
   GetReservesResponse,
   getReserves,
   getReservesQueryKey,
 } from "../useReserves/useReserves";
-import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { useAaveContracts } from "../../providers";
 import { getUserReserves } from "../useUserReserves/useUserReserves";
 
@@ -34,7 +34,7 @@ export type GetReservesIncentives = {
 export const getReservesIncentives = async (
   incentiveDataProviderContract: UiIncentiveDataProvider,
   chainAddressBook: SupportedAddressBook,
-  reservesResponse: GetReservesResponse
+  reservesResponse: GetReservesResponse,
 ): Promise<GetReservesIncentives> => {
   // Array of incentive tokens with price feed and emission APR
   const reserveIncentives =
@@ -93,10 +93,10 @@ export const useReservesIncentives = () => {
         queryKey: getReservesQueryKey(chainAddressBook.CHAIN_ID),
         queryFn: () => getReserves(poolDataProviderContract, chainAddressBook),
       });
-      return await getReservesIncentives(
+      return getReservesIncentives(
         incentiveDataProviderContract,
         chainAddressBook,
-        reserves
+        reserves,
       );
     },
     enabled,

@@ -33,5 +33,6 @@ module.exports = {
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
     "consistent-return": "off",
+    "@typescript-eslint/no-unused-vars": "off",
   },
 };
