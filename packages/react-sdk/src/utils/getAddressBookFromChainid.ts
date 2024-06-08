@@ -63,6 +63,11 @@ export const supportedNetworks = [
   scrollSepolia,
 ];
 
+/**
+ *  Get the AAVE contracts address book for the given chain ID from the supported networks
+ * @param chainId  Chain ID
+ * @returns  Address book for the given chain ID
+ */
 export const getAddressBookFromChainid = (chainId: number) => {
   switch (chainId) {
     // TODO: BNB ?

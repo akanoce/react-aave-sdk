@@ -11,7 +11,7 @@ import { SupportedAddressBook, getAddressBookFromChainid } from "../utils";
 
 /**
  * Context to provide Aave V3 contracts to the app
- * @param children
+ * @param children The children of the provider
  * @param provider The ethers provider
  * @param poolDataProviderContract The Aave V3 UI Pool Data Provider contract
  * @param incentiveDataProviderContract The Aave V3 UI Incentive Data Provider contract
@@ -51,8 +51,6 @@ export const AaveContractsProvider = ({
     () => getAddressBookFromChainid(chainId),
     [chainId]
   );
-
-
 
   // View contract used to fetch all reserves data (including market base currency data), and user reserves
   // Using Aave V3 Eth Mainnet address for demo
