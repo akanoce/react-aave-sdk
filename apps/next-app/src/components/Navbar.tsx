@@ -12,9 +12,9 @@ export const Navbar = () => (
         <Link
           fontSize="xs"
           isExternal
-          href="https://github.com/akanoce/react-aave-sdk"
+          href="https://github.com/akanoce/@akanoce/react-aave-sdk"
         >
-          Powered by react-aave-sdk
+          Powered by @akanoce/react-aave-sdk
         </Link>
       </Box>
     </HStack>

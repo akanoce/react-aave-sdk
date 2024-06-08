@@ -1,5 +1,5 @@
 {
-  "name": "react-aave-sdk",
+  "name": "@akanoce/react-aave-sdk",
   "private": true,
   "version": "1.0.0",
   "description": "Monorepo for developing a collection of hooks to interact with the aave pools and smart contracts",

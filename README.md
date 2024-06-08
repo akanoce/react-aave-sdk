@@ -1,4 +1,4 @@
-# react-aave-sdk
+# @akanoce/react-aave-sdk
 
 > Still under active development. No NPM packages are available yet
 

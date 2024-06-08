@@ -11,7 +11,7 @@ import {
   AaveV3Gnosis,
   AaveV3Harmony,
   AaveV3Fuji,
-  AaveV3Mumbai,
+  AaveV3BNB,
   AaveV3Polygon,
   AaveV3PolygonZkEvm,
   AaveV3Optimism,
@@ -26,6 +26,7 @@ import {
   arbitrumSepolia,
   avalanche,
   base,
+  bsc,
   baseSepolia,
   fantom,
   fantomTestnet,
@@ -61,11 +62,13 @@ export const supportedNetworks = [
   optimismSepolia,
   scroll,
   scrollSepolia,
+  bsc,
 ];
 
 export const getAddressBookFromChainid = (chainId: number) => {
   switch (chainId) {
-    // TODO: BNB ?
+    case bsc.id:
+      return AaveV3BNB;
     case sepolia.id:
       return AaveV3Sepolia;
     case mainnet.id:
@@ -92,8 +95,6 @@ export const getAddressBookFromChainid = (chainId: number) => {
       return AaveV3Fuji;
     //   case metis.id:
     //     return AaveV3Metis; // do not support WETH_GATEWAY
-    case polygonMumbai.id:
-      return AaveV3Mumbai;
     case polygon.id:
       return AaveV3Polygon;
     case polygonZkEvm.id:

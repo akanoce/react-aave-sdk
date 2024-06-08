@@ -1,5 +1,5 @@
 import { useEthersProvider } from "./hooks/useEthersProvider";
-import { AaveContractsProvider } from "@aave/react-sdk";
+import { AaveContractsProvider } from "@akanoce/react-aave-sdk";
 import { useSelectedNetwork } from "./store";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";

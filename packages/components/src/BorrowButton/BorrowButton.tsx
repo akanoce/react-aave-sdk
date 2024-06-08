@@ -3,7 +3,7 @@ import {
   GetReservesResponse,
   GetUserReservesResponse,
   useBorrow,
-} from "@aave/react-sdk";
+} from "@akanoce/react-aave-sdk";
 import {
   Button,
   FormControl,
@@ -36,7 +36,7 @@ export const BorrowButton: React.FC<Props> = ({
 }) => {
   const availableToBorrowInReserve = useMemo(() => {
     const availableToBorrowUsd = new BigNumber(
-      formattedUserSummary?.availableBorrowsUSD ?? 0,
+      formattedUserSummary?.availableBorrowsUSD ?? 0
     );
     const reservePriceInUsd = new BigNumber(reserve.priceInUSD ?? 0);
     if (!availableToBorrowUsd || !reservePriceInUsd) return 0;

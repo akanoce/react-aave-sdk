@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from "react";
 import {
   HStack,
@@ -14,7 +15,10 @@ import {
   Tr,
   VStack,
 } from "@chakra-ui/react";
-import { type GetUserReservesResponse, formatBalance } from "@aave/react-sdk";
+import {
+  type GetUserReservesResponse,
+  formatBalance,
+} from "@akanoce/react-aave-sdk";
 import { useWalletClient } from "wagmi";
 import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
 import { SupplyButton } from "./SupplyButton";
@@ -50,7 +54,7 @@ export const UserReservesTable: React.FC<Props> = ({
             .filter(
               (userReserve) =>
                 Number(userReserve.underlyingBalance) > 0 ||
-                Number(userReserve.totalBorrows) > 0,
+                Number(userReserve.totalBorrows) > 0
             )
             .map((userReserve) => (
               <Tr key={userReserve.reserve.id}>
@@ -77,6 +81,7 @@ export const UserReservesTable: React.FC<Props> = ({
                             reserveAddress={userReserve.reserve.underlyingAsset}
                           />
                         )}
+
                         <BorrowButton
                           signer={signer}
                           formattedUserSummary={userReserves}

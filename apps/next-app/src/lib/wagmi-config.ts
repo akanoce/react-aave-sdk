@@ -1,4 +1,4 @@
-import { supportedNetworks } from "@aave/react-sdk";
+import { supportedNetworks } from "@akanoce/react-aave-sdk";
 import { http, createConfig } from "wagmi";
 import { Chain } from "wagmi/chains";
 import { getDefaultConfig } from "connectkit";
@@ -14,7 +14,7 @@ export const config = createConfig(
         acc[network.id] = http();
         return acc;
       },
-      {} as Record<number, ReturnType<typeof http>>,
+      {} as Record<number, ReturnType<typeof http>>
     ),
-  }),
+  })
 );

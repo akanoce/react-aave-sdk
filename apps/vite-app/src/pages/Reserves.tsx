@@ -1,4 +1,4 @@
-import { formatBalance, useReserves } from "@aave/react-sdk";
+import { formatBalance, useReserves } from "@akanoce/react-aave-sdk";
 import {
   Box,
   Card,

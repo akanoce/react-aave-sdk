@@ -12,8 +12,8 @@ module.exports = {
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaVersion: 2020,
-    sourceType: "module",
+    
+   project: "./tsconfig.json"
   },
   plugins: ["react-refresh", "prettier"],
   rules: {
@@ -32,5 +32,9 @@ module.exports = {
     "react/require-default-props": "off",
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
+    "import/extensions": "off",
+    "import/export": "off",
+    "import/no-extraneous-dependencies": "off",
+
   },
 };
