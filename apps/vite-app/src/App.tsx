@@ -1,7 +1,7 @@
-import { useEthersProvider } from "./hooks/useEthersProvider";
 import { AaveContractsProvider } from "@akanoce/react-aave-sdk";
-import { useSelectedNetwork } from "./store";
 import { RouterProvider } from "react-router-dom";
+import { useEthersProvider } from "./hooks/useEthersProvider";
+import { useSelectedNetwork } from "./store";
 import { router } from "./router";
 
 export const App = () => {

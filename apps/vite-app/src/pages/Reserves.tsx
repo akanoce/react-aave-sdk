@@ -20,18 +20,18 @@ export default function Reserves() {
     () =>
       reserves?.formattedReserves.reduce(
         (acc, reserve) => acc + Number(reserve.totalLiquidityUSD),
-        0
+        0,
       ),
-    [reserves]
+    [reserves],
   );
 
   const totalDebt = useMemo(
     () =>
       reserves?.formattedReserves.reduce(
         (acc, reserve) => acc + Number(reserve.totalDebtUSD),
-        0
+        0,
       ),
-    [reserves]
+    [reserves],
   );
 
   if (reservesLoading)
@@ -56,10 +56,10 @@ export default function Reserves() {
           <Stack
             spacing={[4, 4, 8]}
             direction={["column", "column", "row"]}
-            align={"flex-start"}
+            align="flex-start"
           >
             <Box>
-              <Text textTransform={"uppercase"} color="gray.500">
+              <Text textTransform="uppercase" color="gray.500">
                 Total Liquidity
               </Text>
               <Heading size="sm">
@@ -67,7 +67,7 @@ export default function Reserves() {
               </Heading>
             </Box>
             <Box>
-              <Text textTransform={"uppercase"} color="gray.500">
+              <Text textTransform="uppercase" color="gray.500">
                 Total debt
               </Text>
               <Heading size="sm">{formatBalance(totalDebt, "USD")}</Heading>

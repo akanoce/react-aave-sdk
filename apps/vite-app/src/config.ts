@@ -7,14 +7,14 @@ export const config = createConfig(
   getDefaultConfig({
     appName: "Vite/AAVE react sdk sample app",
     walletConnectProjectId: "PROJECT_ID",
-    //TODO: IS there a better type for this?
+    // TODO: IS there a better type for this?
     chains: supportedNetworks as unknown as readonly [Chain, ...Chain[]],
     transports: supportedNetworks.reduce(
       (acc, network) => {
         acc[network.id] = http();
         return acc;
       },
-      {} as Record<number, ReturnType<typeof http>>
+      {} as Record<number, ReturnType<typeof http>>,
     ),
-  })
+  }),
 );
