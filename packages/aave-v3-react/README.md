@@ -21,7 +21,9 @@
 
 ## Installation
 
-You can install the package using your favourite package manager like:
+After having setting up a react project with [vite](https://vitejs.dev/guide/) or [next.js](https://nextjs.org/docs/getting-started/installation)
+
+install the required packages using your favourite package manager:
 
 ```bash
 npm install aave-v3-react @tanstack/react-query wagmi viem@2.x connectkit @tanstack/react-query-devtools
