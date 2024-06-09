@@ -8,6 +8,8 @@ import { createContext, useContext, useMemo } from "react";
 import { providers } from "ethers";
 
 import { SupportedAddressBook, getAddressBookFromChainid } from "../utils";
+import { useChainId } from "wagmi";
+import { useEthersProvider } from "..";
 
 /**
  * Context to provide Aave V3 contracts to the app
@@ -33,25 +35,24 @@ export const AaveContractsContext =
 
 type Props = {
   children: React.ReactNode;
-  provider: providers.Provider;
-  chainId: number;
 };
 /**
  *
  * @param children - The children of the provider
- * @param provider - The ethers provider
- * @param chainId - The chain id
  * @returns The Aave V3 contracts provider
  */
 export const AaveContractsProvider = ({
   children,
-  provider,
-  chainId,
 }: Props) => {
+  const chainId = useChainId();
+  const provider = useEthersProvider({ chainId });
+
   const chainAddressBook = useMemo(
     () => getAddressBookFromChainid(chainId),
     [chainId],
   );
+
+  
 
   // View contract used to fetch all reserves data (including market base currency data), and user reserves
   // Using Aave V3 Eth Mainnet address for demo

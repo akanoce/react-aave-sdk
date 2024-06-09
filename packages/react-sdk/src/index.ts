@@ -15,6 +15,7 @@ export {
   useRepayWithPermit,
   useSignERC20Approval,
   useSetUsageAsCollateral,
+  useEthersProvider,
   type GetReservesResponse,
   type GetUserReservesResponse,
 } from "./hooks";

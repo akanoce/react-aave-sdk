@@ -9,29 +9,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Navbar } from "@/components/Navbar";
 import { DesktopSidebar } from "@/components/DesktopSidebar";
 import { config } from "@/lib/wagmi-config";
-import { useSelectedNetwork } from "@/lib/store";
-import { useEthersProvider } from "@/hooks/useEthersProvider";
 import { ConnectKitProvider } from "connectkit";
-
-function Interface({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const { chainId } = useSelectedNetwork();
-  const provider = useEthersProvider({ chainId });
-  return (
-    <AaveContractsProvider provider={provider} chainId={chainId}>
-      <Navbar />
-      <Container maxW={["container.3xl", "container.2xl", "container.xl"]}>
-        <HStack spacing={4} py={4} w="full" align="stretch">
-          <DesktopSidebar />
-          {children}
-        </HStack>
-      </Container>
-    </AaveContractsProvider>
-  );
-}
 
 export default function RootLayout({
   children,
@@ -48,7 +26,17 @@ export default function RootLayout({
               <QueryClientProvider client={queryClient}>
                 <ReactQueryDevtools initialIsOpen={false} />
                 <ConnectKitProvider>
-                  <Interface>{children}</Interface>
+                  <AaveContractsProvider>
+                    <Navbar />
+                    <Container
+                      maxW={["container.3xl", "container.2xl", "container.xl"]}
+                    >
+                      <HStack spacing={4} py={4} w="full" align="stretch">
+                        <DesktopSidebar />
+                        {children}
+                      </HStack>
+                    </Container>
+                  </AaveContractsProvider>
                 </ConnectKitProvider>
               </QueryClientProvider>
             </WagmiProvider>
