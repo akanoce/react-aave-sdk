@@ -1,10 +1,10 @@
-# React Aave V3
+# Aave V3 React
 
 ![banner](../../assets/banner.jpg)
 
-![npm](https://img.shields.io/npm/v/react-aave-sdk)
-![npm bundle size](https://img.shields.io/bundlephobia/min/react-aave-sdk)
-![npm](https://img.shields.io/npm/dm/react-aave-sdk)
+![npm](https://img.shields.io/npm/v/aave-v3-react)
+![npm bundle size](https://img.shields.io/bundlephobia/min/aave-v3-react)
+![npm](https://img.shields.io/npm/dm/aave-v3-react)
 
 ## Overview
 
@@ -125,7 +125,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 `App.tsx`
 
 ```
-import { formatBalance, useReserves  } from "react-aave-sdk";
+import { formatBalance, useReserves  } from "aave-v3-react";
 export const App = () => {
 
     const { data, isLoading, error } = useReserves()
