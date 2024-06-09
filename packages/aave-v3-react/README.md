@@ -6,9 +6,32 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/min/aave-v3-react)
 ![npm](https://img.shields.io/npm/dm/aave-v3-react)
 
+<!-- TOC --><a name="overview"></a>
+
 ## Overview
 
 `aave-v3-react` is a React SDK that makes creating a dApp on top of the Aave Protocol V3 feeling like a breeze. We offer a full suite of hooks and providers integrated with `wagmi` and `viem` to make devs life easier.
+
+<!-- TOC start (generated with https://github.com/derlin/bitdowntoc) -->
+
+- [Aave V3 React](#aave-v3-react)
+  - [Overview](#overview)
+  - [Features](#features)
+  - [Installation](#installation)
+    - [Note on the additional packages](#note-on-the-additional-packages)
+  - [Quick start](#quick-start)
+    - [About Next.js](#about-nextjs)
+    - [React native](#react-native)
+  - [API Reference](#api-reference)
+  - [Future of the project](#future-of-the-project)
+  - [Contributing](#contributing)
+  - [Acknowledgments](#acknowledgments)
+
+<!-- TOC end -->
+
+<!-- TOC --><a name="aave-v3-react"></a>
+
+<!-- TOC --><a name="features"></a>
 
 ## Features
 
@@ -18,6 +41,8 @@
 - Simple hooks for reading and writing from/to the Aave V3 pools
 - Comprehensive TypeScript support
 - Next.js and Vite example apps
+
+<!-- TOC --><a name="installation"></a>
 
 ## Installation
 
@@ -35,6 +60,8 @@ or
 yarn add aave-v3-react @tanstack/react-query wagmi viem@2.x connectkit @tanstack/react-query-devtools
 ```
 
+<!-- TOC --><a name="note-on-the-additional-packages"></a>
+
 ### Note on the additional packages
 
 aave-v3-react depends on `@tanstack/react-query`, `wagmi` and `viem`. If any of those packages is missing or installed with an unsupported version, it's possible you experience errors like:
@@ -43,6 +70,8 @@ aave-v3-react depends on `@tanstack/react-query`, `wagmi` and `viem`. If any of 
 - `useChain must be used with Wagmiprovider`;
 
 If this is the case, please double check the version of the packages before opening an issue.
+
+<!-- TOC --><a name="quick-start"></a>
 
 ## Quick start
 
@@ -146,13 +175,19 @@ export const App = () => {
 }
 ```
 
+<!-- TOC --><a name="about-nextjs"></a>
+
 ### About Next.js
 
 `aave-v3-react` is fully complatible with next.js, but you may experience some issues with `wagmi` and `connectkit` in some cases. Make sure to add the `"use client";` directive where needed, and eventually check their docs to tackle such errors.
 
+<!-- TOC --><a name="react-native"></a>
+
 ### React native
 
 React native support is still unexplored but should work out of the box. In case you managed to integrate the library there correctly, please open a PR documenting that and possibly providing an example app.
+
+<!-- TOC --><a name="api-reference"></a>
 
 ## API Reference
 
@@ -168,6 +203,8 @@ Also, a few methods like
 
   have been fully integrated in the [example apps](https://github.com/akanoce/react-aave-sdk/tree/main/apps).
 
+<!-- TOC --><a name="future-of-the-project"></a>
+
 ## Future of the project
 
 `aave-v3-react` is a reactive wrapper on top of [aave-utilities](https://github.com/aave/aave-utilities), in the short/mid term we aim to:
@@ -179,10 +216,14 @@ Also, a few methods like
 - Investigate react-native support
 - Add more examples
 
+<!-- TOC --><a name="contributing"></a>
+
 ## Contributing
 
 Contributing guidlines are coming soon.
 If you want to contribute to this project, open an issue, PR or write me on X ([@ErikNucibella](https://x.com/ErikNucibella))
+
+<!-- TOC --><a name="acknowledgments"></a>
 
 ## Acknowledgments
 
