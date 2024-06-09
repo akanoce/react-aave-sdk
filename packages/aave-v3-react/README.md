@@ -1,6 +1,6 @@
 # Aave V3 React
 
-![banner](../../assets/banner.jpg)
+![banner](https://github.com/akanoce/react-aave-sdk/blob/main/assets/banner.jpg)
 
 ![npm](https://img.shields.io/npm/v/aave-v3-react)
 ![npm bundle size](https://img.shields.io/bundlephobia/min/aave-v3-react)
@@ -91,11 +91,11 @@ export const config = createConfig(
 ```
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ChakraProvider } from "@chakra-ui/react";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ConnectKitProvider } from "connectkit";
+import { AaveContractsProvider  } from "aave-v3-react";
 import { config } from "./config";
 import { App } from "./App";
 
@@ -106,18 +106,16 @@ const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ChakraProvider>
-      <WagmiProvider config={config}>
+    <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
-          <ReactQueryDevtools initialIsOpen={false} />
-          <ConnectKitProvider>
-            <AaveContractsProvider>
-              <App />
-            </AaveContractsProvider>
-          </ConnectKitProvider>
+            <ReactQueryDevtools initialIsOpen={false} />
+            <ConnectKitProvider>
+                <AaveContractsProvider>
+                    <App />
+                </AaveContractsProvider>
+            </ConnectKitProvider>
         </QueryClientProvider>
-      </WagmiProvider>
-    </ChakraProvider>
+    </WagmiProvider>
   </React.StrictMode>
 );
 ```
