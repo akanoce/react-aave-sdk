@@ -1,6 +1,6 @@
 {
   "name": "aave-v3-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "A collection of React hooks to interact with the Aave V3 pools and smart contracts.",
   "repository": "git@github.com:akanoce/react-aave-sdk.git",
@@ -51,5 +51,25 @@
     "prettier": "^3.2.5",
     "tsup": "^8.0.2",
     "typescript": "^5.4.4"
-  }
+  },
+  "keywords": [
+    "aave",
+    "react",
+    "react-hooks",
+    "typescript",
+    "aave-v3",
+    "aave-v3-sdk",
+    "aave-v3-react",
+    "aave-v3-hooks",
+    "aave-v3-react-hooks",
+    "aave-v3-react-sdk",
+    "aave-v3-react-hooks-sdk",
+    "aave-v3-react-sdk-hooks",
+    "aave-v3-react-hooks-sdk",
+    "defi",
+    "aave",
+    "web3",
+    "ethereum",
+    "blockchain"
+  ]
 }
