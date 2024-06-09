@@ -1,4 +1,4 @@
-import { supportedNetworks } from "react-aave-v3";
+import { supportedNetworks } from "aave-v3-react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -16,6 +16,6 @@ export const useSelectedNetwork = create<SelectedNetworkStore>()(
     }),
     {
       name: "SELECTED_NETWORK", // name of the item in the storage (must be unique)
-    },
-  ),
+    }
+  )
 );

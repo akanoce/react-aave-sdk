@@ -1,6 +1,6 @@
 # Aave SDK
 
-## [React Aave V3 is out!](https://www.npmjs.com/package/react-aave-v3)
+## [React Aave V3 is out!](https://www.npmjs.com/package/aave-v3-react)
 
 ![banner](./assets/banner.jpg)
 

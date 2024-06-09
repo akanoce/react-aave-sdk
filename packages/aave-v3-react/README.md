@@ -8,7 +8,7 @@
 
 ## Overview
 
-`react-aave-v3` is a React SDK that makes creating a dApp on top of the Aave Protocol V3 feeling like a breeze. We offer a full suite of hooks and providers integrated with `wagmi` and `viem` to make devs life easier.
+`aave-v3-react` is a React SDK that makes creating a dApp on top of the Aave Protocol V3 feeling like a breeze. We offer a full suite of hooks and providers integrated with `wagmi` and `viem` to make devs life easier.
 
 ## Features
 
@@ -24,18 +24,18 @@
 You can install the package using your favourite package manager like:
 
 ```bash
-npm install react-aave-v3 @tanstack/react-query wagmi viem@2.x connectkit @tanstack/react-query-devtools
+npm install aave-v3-react @tanstack/react-query wagmi viem@2.x connectkit @tanstack/react-query-devtools
 ```
 
 or
 
 ```
-yarn add react-aave-v3 @tanstack/react-query wagmi viem@2.x connectkit @tanstack/react-query-devtools
+yarn add aave-v3-react @tanstack/react-query wagmi viem@2.x connectkit @tanstack/react-query-devtools
 ```
 
 ### Note on the additional packages
 
-react-aave-v3 depends on `@tanstack/react-query`, `wagmi` and `viem`. If any of those packages is missing or installed with an unsupported version, it's possible you experience errors like:
+aave-v3-react depends on `@tanstack/react-query`, `wagmi` and `viem`. If any of those packages is missing or installed with an unsupported version, it's possible you experience errors like:
 
 - `useQuery must be used with QueryClientProvider`;
 - `useChain must be used with Wagmiprovider`;
@@ -60,13 +60,13 @@ my-project/
 `wagmiConfig.ts`
 
 ```
-import { supportedNetworks } from "react-aave-v3";
+import { supportedNetworks } from "aave-v3-react";
 import { getDefaultConfig } from "connectkit";
 import { createConfig, http } from "wagmi";
 import { Chain } from "wagmi/chains";
 
 /**
- * his config allows wagmi to support all the networks supported by react-aave-v3, feel free to
+ * his config allows wagmi to support all the networks supported by aave-v3-react, feel free to
  * change it according to your needs
  */
 export const config = createConfig(
@@ -100,7 +100,7 @@ import { config } from "./config";
 import { App } from "./App";
 
 /**
-* To be configured based on your needs. All the react-aave-v3 hooks will store data here
+* To be configured based on your needs. All the aave-v3-react hooks will store data here
 */
 const queryClient = new QueryClient();
 
@@ -148,7 +148,7 @@ export const App = () => {
 
 ### About Next.js
 
-`react-aave-v3` is fully complatible with next.js, but you may experience some issues with `wagmi` and `connectkit` in some cases. Make sure to add the `"use client";` directive where needed, and eventually check their docs to tackle such errors.
+`aave-v3-react` is fully complatible with next.js, but you may experience some issues with `wagmi` and `connectkit` in some cases. Make sure to add the `"use client";` directive where needed, and eventually check their docs to tackle such errors.
 
 ### React native
 
@@ -170,7 +170,7 @@ Also, a few methods like
 
 ## Future of the project
 
-`react-aave-v3` is a reactive wrapper on top of [aave-utilities](https://github.com/aave/aave-utilities), in the short/mid term we aim to:
+`aave-v3-react` is a reactive wrapper on top of [aave-utilities](https://github.com/aave/aave-utilities), in the short/mid term we aim to:
 
 - Implement all the V3 methods available there
 - Fix some type errors and liting issues

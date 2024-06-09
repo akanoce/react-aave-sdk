@@ -18,7 +18,7 @@ import {
   formatAPY,
   formatBalance,
   type GetReservesResponse,
-} from "react-aave-v3";
+} from "aave-v3-react";
 import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
 
 type Props = {

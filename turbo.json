@@ -5,11 +5,11 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
-    "react-aave-v3#build": {
+    "aave-v3-react#build": {
       "cache": false
     },
     "dev": {
-      "dependsOn": ["react-aave-v3#build"]
+      "dependsOn": ["aave-v3-react#build"]
     },
     "lint": {
       "cache": false

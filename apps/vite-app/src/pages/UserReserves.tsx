@@ -1,6 +1,6 @@
 "use client";
 
-import { formatBalance, useUserReserves } from "react-aave-v3";
+import { formatBalance, useUserReserves } from "aave-v3-react";
 import { UserReservesTable } from "@repo/components";
 import {
   Box,
@@ -66,7 +66,7 @@ export default function UserReserves() {
               <Heading size="sm">
                 {formatBalance(
                   userReserves?.formattedReserves.totalLiquidityUSD,
-                  "USD",
+                  "USD"
                 )}
               </Heading>
             </Box>
@@ -77,7 +77,7 @@ export default function UserReserves() {
               <Heading size="sm">
                 {formatBalance(
                   userReserves?.formattedReserves.totalBorrowsUSD,
-                  "USD",
+                  "USD"
                 )}
               </Heading>
             </Box>
@@ -88,7 +88,7 @@ export default function UserReserves() {
               <Heading size="sm">
                 {formatBalance(
                   userReserves?.formattedReserves.netWorthUSD,
-                  "USD",
+                  "USD"
                 )}
               </Heading>
             </Box>

@@ -6,7 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ConnectKitProvider } from "connectkit";
 import { config } from "./config";
-import { AaveContractsProvider } from "react-aave-v3";
+import { AaveContractsProvider } from "aave-v3-react";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./router";
 
