@@ -6,8 +6,8 @@ import {
 import { LPBorrowParamsType } from "@aave/contract-helpers/dist/esm/v3-pool-contract/lendingPoolTypes";
 import { WalletClient } from "viem";
 import { useMutation } from "@tanstack/react-query";
-import { useAaveContracts } from "../../providers/AaveContractsProvider";
-import { submitTransaction } from "../../utils/sendTransaction";
+import { useAaveContracts } from "@/providers";
+import { submitTransaction } from "@/utils/sendTransaction";
 
 /**
  *  Create borrow txs for Aave V3 pool
@@ -19,7 +19,7 @@ import { submitTransaction } from "../../utils/sendTransaction";
  */
 export const createBorrowTx = async (
   pool: Pool,
-  data: LPBorrowParamsType
+  data: LPBorrowParamsType,
 ): Promise<EthereumTransactionTypeExtended[]> => {
   const txs: EthereumTransactionTypeExtended[] = await pool.borrow(data);
   return txs;

@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Button,
   HStack,
   Heading,
   Image,
@@ -19,7 +18,7 @@ import {
   formatAPY,
   formatBalance,
   type GetReservesResponse,
-} from "@aave/react-sdk";
+} from "react-aave-v3";
 import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
 
 type Props = {

@@ -1,5 +1,5 @@
 {
-  "name": "react-aave-sdk",
+  "name": "@aave/sdk",
   "private": true,
   "version": "1.0.0",
   "description": "Monorepo for developing a collection of hooks to interact with the aave pools and smart contracts",
@@ -11,7 +11,8 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "prepare": "husky",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "engines": {
     "node": ">=18"
@@ -25,6 +26,9 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "husky": "^9.0.11",
-    "prettier": "^3.2.5"
+    "prettier": "^3.3.1"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.27.5"
   }
 }

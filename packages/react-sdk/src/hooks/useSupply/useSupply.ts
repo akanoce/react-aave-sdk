@@ -6,8 +6,8 @@ import {
 import { LPSupplyParamsType } from "@aave/contract-helpers/dist/esm/v3-pool-contract/lendingPoolTypes";
 import { WalletClient } from "viem";
 import { useMutation } from "@tanstack/react-query";
-import { useAaveContracts } from "../../providers/AaveContractsProvider";
-import { submitTransaction } from "../../utils/sendTransaction";
+import { useAaveContracts } from "@/providers";
+import { submitTransaction } from "@/utils/sendTransaction";
 
 /**
  * Supply an asset to the pool
@@ -28,7 +28,7 @@ import { submitTransaction } from "../../utils/sendTransaction";
  */
 export const createSupplyTxs = async (
   pool: Pool,
-  data: LPSupplyParamsType
+  data: LPSupplyParamsType,
 ): Promise<EthereumTransactionTypeExtended[]> => {
   const txs: EthereumTransactionTypeExtended[] = await pool.supply(data);
   return txs;

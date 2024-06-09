@@ -2,13 +2,14 @@
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
     "build": {
+      "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "dist/**"]
     },
-    "@aave/react-sdk#build": {
+    "react-aave-v3#build": {
       "cache": false
     },
     "dev": {
-      "dependsOn": ["@aave/react-sdk#build"]
+      "dependsOn": ["react-aave-v3#build"]
     },
     "lint": {
       "cache": false

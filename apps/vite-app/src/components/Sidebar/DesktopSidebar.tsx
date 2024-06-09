@@ -5,8 +5,8 @@ import {
   Box,
   Link as ChakraLink,
 } from "@chakra-ui/react";
-import { Menu } from "./Menu";
 import { Link as RRLink, useLocation } from "react-router-dom";
+import { Menu } from "./Menu";
 
 export const DesktopSidebar = () => {
   const location = useLocation();
@@ -29,7 +29,7 @@ export const DesktopSidebar = () => {
       <VStack
         spacing={4}
         align="flex-start"
-        justify={"flex-start"}
+        justify="flex-start"
         w="full"
         p={4}
         divider={<Divider />}

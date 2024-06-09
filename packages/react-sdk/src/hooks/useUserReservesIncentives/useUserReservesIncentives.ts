@@ -1,5 +1,7 @@
 import { UiIncentiveDataProvider } from "@aave/contract-helpers";
 import { formatUserSummaryAndIncentives } from "@aave/math-utils";
+import dayjs from "dayjs";
+import { useQueryClient, useQuery } from "@tanstack/react-query";
 import {
   GetReservesResponse,
   getReserves,
@@ -16,8 +18,6 @@ import {
   getReservesIncentives,
   getReservesIncentivesQueryKey,
 } from "../useReservesIncentives/useReservesIncentives";
-import dayjs from "dayjs";
-import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { useAaveContracts } from "../../providers";
 
 /**
@@ -34,7 +34,7 @@ export const getUserReservesIncentives = async (
   user: string,
   reservesResponse: GetReservesResponse,
   reserveIncentivesResponse: GetReservesIncentives,
-  userReserves: GetUserReservesResponse
+  userReserves: GetUserReservesResponse,
 ) => {
   // Dictionary of claimable user incentives
   const userReservesIncentives =
@@ -63,7 +63,7 @@ export const getUserReservesIncentives = async (
 
 export const getUserReservesIncentivesQueryKey = (
   chainId: number,
-  user?: string
+  user?: string,
 ) => ["AAVE", chainId, "USER_RESERVES_INCENTIVES", user];
 
 /** Fetches user reserves and active eMode category from the Aave V3 UI Pool Data Provider contract
@@ -92,7 +92,7 @@ export const useUserReservesIncentives = (user?: string) => {
   return useQuery({
     queryKey: getUserReservesIncentivesQueryKey(
       chainAddressBook.CHAIN_ID,
-      user
+      user,
     ),
     queryFn: async () => {
       if (!enabled) return null;
@@ -106,7 +106,7 @@ export const useUserReservesIncentives = (user?: string) => {
           getReservesIncentives(
             incentiveDataProviderContract,
             chainAddressBook,
-            reserves
+            reserves,
           ),
       });
       const userReserves = await queryClient.ensureQueryData({
@@ -116,16 +116,16 @@ export const useUserReservesIncentives = (user?: string) => {
             poolDataProviderContract,
             chainAddressBook,
             user,
-            reserves
+            reserves,
           ),
       });
-      return await getUserReservesIncentives(
+      return getUserReservesIncentives(
         incentiveDataProviderContract,
         chainAddressBook,
         user,
         reserves,
         reservesIncentives,
-        userReserves
+        userReserves,
       );
     },
     enabled,

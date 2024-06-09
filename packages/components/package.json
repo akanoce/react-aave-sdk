@@ -1,7 +1,8 @@
 {
   "name": "@repo/components",
   "version": "1.0.0",
-  "description": "Shared UI components for react-aave-sdk monorepo",
+  "private": true,
+  "description": "Shared UI components for react-aave-v3 monorepo",
   "main": "src/index.ts",
   "repository": "git@github.com:akanoce/react-aave-sdk.git",
   "author": "<eriknucib@live.it>",
@@ -16,11 +17,12 @@
     "lint": "eslint --ext .ts,.tsx . --fix"
   },
   "dependencies": {
-    "@aave/react-sdk": "*",
+    "react-aave-v3": "*",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@types/react": "^18.3.1",
+    "bignumber.js": "^9.1.2",
     "cryptocurrency-icons": "^0.18.1",
     "framer-motion": "^11.1.7",
     "react": "^18.3.1",

@@ -1,7 +1,8 @@
 import { Select } from "@chakra-ui/react";
-import { supportedNetworks } from "@aave/react-sdk";
-import { useSelectedNetwork } from "../store";
+import { supportedNetworks } from "react-aave-v3";
 import { ChangeEvent, useCallback } from "react";
+import { useSelectedNetwork } from "../store";
+
 export const NetworkSelect = () => {
   const { chainId, setChainId } = useSelectedNetwork();
 
@@ -9,7 +10,7 @@ export const NetworkSelect = () => {
     (e: ChangeEvent<HTMLSelectElement>) => {
       setChainId(Number(e.target.value));
     },
-    [setChainId]
+    [setChainId],
   );
   return (
     <Select value={chainId} onChange={onChange}>

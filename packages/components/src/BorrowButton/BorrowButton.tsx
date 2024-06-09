@@ -3,7 +3,7 @@ import {
   GetReservesResponse,
   GetUserReservesResponse,
   useBorrow,
-} from "@aave/react-sdk";
+} from "react-aave-v3";
 import {
   Button,
   FormControl,
@@ -34,18 +34,18 @@ export const BorrowButton: React.FC<Props> = ({
   formattedUserSummary,
   signer,
 }) => {
-  const availableToBorrowUsd = new BigNumber(
-    formattedUserSummary?.availableBorrowsUSD ?? 0
-  );
-  const reservePriceInUsd = new BigNumber(reserve.priceInUSD ?? 0);
   const availableToBorrowInReserve = useMemo(() => {
+    const availableToBorrowUsd = new BigNumber(
+      formattedUserSummary?.availableBorrowsUSD ?? 0
+    );
+    const reservePriceInUsd = new BigNumber(reserve.priceInUSD ?? 0);
     if (!availableToBorrowUsd || !reservePriceInUsd) return 0;
     return availableToBorrowUsd.div(reservePriceInUsd);
-  }, [availableToBorrowUsd, reservePriceInUsd]);
+  }, [formattedUserSummary, reserve]);
 
   const [amount, setAmount] = useState("0");
 
-  //TODO: support onBehalfOf
+  // TODO: support onBehalfOf
   const borrowMutation = useBorrow({ signer });
 
   const onBorrow = useCallback(async () => {
@@ -107,7 +107,7 @@ export const BorrowButton: React.FC<Props> = ({
               <Button
                 isDisabled={isDisabled}
                 size="sm"
-                alignSelf={"flex-end"}
+                alignSelf="flex-end"
                 colorScheme="purple"
                 isLoading={isLoading}
                 onClick={onBorrow}

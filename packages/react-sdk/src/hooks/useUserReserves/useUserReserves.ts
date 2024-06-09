@@ -40,7 +40,7 @@ export const getUserReserves = async (
   poolDataProviderContract: UiPoolDataProvider,
   chainAddressBook: SupportedAddressBook,
   user: string,
-  reservesResponse: GetReservesResponse
+  reservesResponse: GetReservesResponse,
 ): Promise<GetUserReservesResponse> => {
   // Object containing array or users aave positions and active eMode category
   // { userReserves, userEmodeCategoryId }
@@ -99,7 +99,7 @@ export const useUserReserves = (user?: string) => {
         poolDataProviderContract,
         chainAddressBook,
         user,
-        reserves
+        reserves,
       );
     },
     enabled,

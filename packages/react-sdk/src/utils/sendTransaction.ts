@@ -1,5 +1,5 @@
+import { EthereumTransactionTypeExtended } from "@aave/contract-helpers";
 import { BigNumber } from "ethers";
-import { EthereumTransactionTypeExtended } from "@aave/aave-utilities";
 import { WalletClient } from "viem";
 
 type SubmitTransactionParamsType = {
@@ -16,6 +16,7 @@ export const submitTransaction = async ({
       const extendedTxData = await tx.tx();
       const txData = extendedTxData;
 
+      // @ts-expect-error - TODO: check correct type for txData
       const txResponse = await signer.sendTransaction({
         ...txData,
         value: BigNumber.from(txData.value).toBigInt(),

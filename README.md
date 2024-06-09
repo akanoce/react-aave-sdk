@@ -1,4 +1,4 @@
-# react-aave-sdk
+# react-aave-v3
 
 > Still under active development. No NPM packages are available yet
 

@@ -2,8 +2,8 @@ import { Pool, EthereumTransactionTypeExtended } from "@aave/contract-helpers";
 import { LPWithdrawParamsType } from "@aave/contract-helpers/dist/esm/v3-pool-contract/lendingPoolTypes";
 import { WalletClient } from "viem";
 import { useMutation } from "@tanstack/react-query";
-import { useAaveContracts } from "../../providers/AaveContractsProvider";
-import { submitTransaction } from "../../utils/sendTransaction";
+import { useAaveContracts } from "@/providers";
+import { submitTransaction } from "@/utils/sendTransaction";
 
 /**
  *  Create withdraw txs for Aave V3 pool
@@ -22,7 +22,7 @@ import { submitTransaction } from "../../utils/sendTransaction";
  */
 export const createWithdrawTxs = async (
   pool: Pool,
-  data: LPWithdrawParamsType
+  data: LPWithdrawParamsType,
 ): Promise<EthereumTransactionTypeExtended[]> => {
   const txs: EthereumTransactionTypeExtended[] = await pool.withdraw(data);
   return txs;
@@ -58,7 +58,7 @@ export const useWithdraw = ({ signer }: Props) => {
    * @returns  An array of transaction hashes - `0x${string}[]`
    */
   const withdrawAsset = async (
-    data: WithdrawData
+    data: WithdrawData,
   ): Promise<`0x${string}`[]> => {
     if (!poolContract) throw new Error("Pool contract not found");
 

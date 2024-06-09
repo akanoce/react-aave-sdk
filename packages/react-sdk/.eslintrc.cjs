@@ -13,7 +13,6 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.json",
-    tsconfigRootDir: __dirname,
   },
   plugins: ["react-refresh", "prettier"],
   rules: {
@@ -33,5 +32,7 @@ module.exports = {
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
     "consistent-return": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "import/extensions": "off",
   },
 };

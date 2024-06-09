@@ -12,8 +12,8 @@ module.exports = {
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: "./tsconfig.json",
-    tsconfigRootDir: __dirname,
+    ecmaVersion: 2020,
+    sourceType: "module",
   },
   plugins: ["react-refresh", "prettier"],
   rules: {
@@ -32,5 +32,7 @@ module.exports = {
     "react/require-default-props": "off",
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
   },
 };

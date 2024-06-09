@@ -1,23 +1,15 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: [
-    "eslint:recommended",
-    "airbnb",
-    "airbnb-typescript",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended",
-    "prettier",
-  ],
+  extends: ["next", "next/core-web-vitals", "prettier"],
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    project: "./tsconfig.json",
-    tsconfigRootDir: __dirname,
+    ecmaVersion: 2020,
+    sourceType: "module",
   },
-  plugins: ["react-refresh", "prettier"],
+  plugins: ["prettier"],
   rules: {
-    "react-refresh/only-export-components": ["warn", { allowConstantExport: true }],
     "prettier/prettier": [
       "error",
       {

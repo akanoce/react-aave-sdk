@@ -14,7 +14,7 @@ import {
   Portal,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useWithdraw } from "@aave/react-sdk";
+import { useWithdraw } from "react-aave-v3";
 import { WalletClient } from "viem";
 
 type Props = {

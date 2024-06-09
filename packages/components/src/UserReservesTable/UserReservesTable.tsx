@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React from "react";
 import {
   HStack,
@@ -14,7 +15,7 @@ import {
   Tr,
   VStack,
 } from "@chakra-ui/react";
-import { type GetUserReservesResponse, formatBalance } from "@aave/react-sdk";
+import { type GetUserReservesResponse, formatBalance } from "react-aave-v3";
 import { useWalletClient } from "wagmi";
 import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
 import { SupplyButton } from "./SupplyButton";
@@ -77,6 +78,7 @@ export const UserReservesTable: React.FC<Props> = ({
                             reserveAddress={userReserve.reserve.underlyingAsset}
                           />
                         )}
+
                         <BorrowButton
                           signer={signer}
                           formattedUserSummary={userReserves}

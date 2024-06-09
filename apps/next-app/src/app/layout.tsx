@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { ChakraProvider, Container, HStack } from "@chakra-ui/react";
-import { AaveContractsProvider } from "@aave/react-sdk";
+import { AaveContractsProvider } from "react-aave-v3";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
