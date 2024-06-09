@@ -1,6 +1,6 @@
-# react-aave-v3
+# Aave SDK
 
-> Still under active development. No NPM packages are available yet
+## [React Aave V3 is out!](https://www.npmjs.com/package/react-aave-v3)
 
 ![banner](./assets/banner.jpg)
 

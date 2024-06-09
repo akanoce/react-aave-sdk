@@ -1,8 +1,8 @@
 {
   "name": "react-aave-v3",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": false,
-  "description": "Collection of react hooks to interact with the aave pools and smart contracts.",
+  "description": "A collection of React hooks to interact with the Aave V3 pools and smart contracts.",
   "repository": "git@github.com:akanoce/react-aave-sdk.git",
   "author": "<eriknucib@live.it>",
   "license": "MIT",
