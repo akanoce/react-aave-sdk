@@ -3,7 +3,7 @@ import {
   GetReservesResponse,
   GetUserReservesResponse,
   useBorrow,
-} from "@akanoce/react-aave-sdk";
+} from "react-aave-v3";
 import {
   Button,
   FormControl,

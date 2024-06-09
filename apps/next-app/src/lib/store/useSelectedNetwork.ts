@@ -1,4 +1,4 @@
-import { supportedNetworks } from "@akanoce/react-aave-sdk";
+import { supportedNetworks } from "react-aave-v3";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 

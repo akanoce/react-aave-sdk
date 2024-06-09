@@ -1,4 +1,4 @@
-import { supportedNetworks } from "@akanoce/react-aave-sdk";
+import { supportedNetworks } from "react-aave-v3";
 import { http, createConfig } from "wagmi";
 import { Chain } from "wagmi/chains";
 import { getDefaultConfig } from "connectkit";

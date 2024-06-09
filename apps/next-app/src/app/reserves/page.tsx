@@ -1,6 +1,6 @@
 "use client";
 
-import { formatBalance, useReserves } from "@akanoce/react-aave-sdk";
+import { formatBalance, useReserves } from "react-aave-v3";
 import {
   Box,
   Button,

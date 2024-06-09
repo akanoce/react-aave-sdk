@@ -1,5 +1,5 @@
 import { Select } from "@chakra-ui/react";
-import { supportedNetworks } from "@akanoce/react-aave-sdk";
+import { supportedNetworks } from "react-aave-v3";
 import { ChangeEvent, useCallback } from "react";
 import { useSelectedNetwork } from "../store";
 

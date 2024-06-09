@@ -1,5 +1,5 @@
 {
-  "name": "@akanoce/react-aave-sdk",
+  "name": "react-aave-v3",
   "version": "0.1.0",
   "private": false,
   "description": "Collection of react hooks to interact with the aave pools and smart contracts.",

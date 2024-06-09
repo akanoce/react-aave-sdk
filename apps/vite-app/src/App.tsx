@@ -1,4 +1,4 @@
-import { AaveContractsProvider } from "@akanoce/react-aave-sdk";
+import { AaveContractsProvider } from "react-aave-v3";
 import { RouterProvider } from "react-router-dom";
 import { useEthersProvider } from "./hooks/useEthersProvider";
 import { useSelectedNetwork } from "./store";
