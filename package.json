@@ -12,6 +12,7 @@
     "build": "turbo run build",
     "prepare": "husky",
     "lint": "turbo run lint",
+    "release": "yarn semantic-release",
     "publish-packages": "turbo run build && changeset version && changeset publish"
   },
   "engines": {
@@ -26,7 +27,8 @@
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "husky": "^9.0.11",
-    "prettier": "^3.3.1"
+    "prettier": "^3.3.1",
+    "semantic-release": "^24.0.0"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.5",
