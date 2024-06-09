@@ -23,5 +23,6 @@ export function clientToProvider(client: Client<Transport, Chain>) {
 export function useEthersProvider({ chainId }: { chainId?: number } = {}) {
   const client = useClient<Config>({ chainId });
   if (!client) throw new Error("No client found");
+  // @ts-expect-error
   return useMemo(() => clientToProvider(client), [client]);
 }

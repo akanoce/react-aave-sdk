@@ -14,7 +14,7 @@ import {
   Portal,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useSupply } from "react-aave-v3";
+import { useSupply } from "aave-v3-react";
 import { WalletClient } from "viem";
 
 type Props = {

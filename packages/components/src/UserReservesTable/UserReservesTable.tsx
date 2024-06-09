@@ -15,7 +15,7 @@ import {
   Tr,
   VStack,
 } from "@chakra-ui/react";
-import { type GetUserReservesResponse, formatBalance } from "react-aave-v3";
+import { type GetUserReservesResponse, formatBalance } from "aave-v3-react";
 import { useWalletClient } from "wagmi";
 import { CryptoIconMap, genericCryptoIcon } from "../CryptoIcons";
 import { SupplyButton } from "./SupplyButton";

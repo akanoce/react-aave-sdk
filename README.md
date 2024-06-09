@@ -1,8 +1,8 @@
-# react-aave-v3
+# Aave SDK
 
-> Still under active development. No NPM packages are available yet
+## [Aave V3 React is out!](https://www.npmjs.com/package/aave-v3-react)
 
-![banner](./assets/banner.jpg)
+![banner](https://github.com/akanoce/react-aave-sdk/blob/main/assets/banner.jpg)
 
 Collections of hooks and providers to make development on top of the aave contracts and pools a breeze.
 

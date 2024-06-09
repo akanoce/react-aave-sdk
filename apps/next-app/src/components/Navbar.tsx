@@ -1,4 +1,4 @@
-import { Box, Heading, HStack, Image, Link, Text } from "@chakra-ui/react";
+import { Box, Heading, HStack, Image, Link } from "@chakra-ui/react";
 import { ThemeSwitcher } from "@repo/components";
 import { NetworkSelect } from "@/components/NetworkSelect";
 import { ConnectKitButton } from "connectkit";
@@ -12,9 +12,9 @@ export const Navbar = () => (
         <Link
           fontSize="xs"
           isExternal
-          href="https://github.com/akanoce/react-aave-v3"
+          href="https://github.com/akanoce/aave-v3-react"
         >
-          Powered by react-aave-v3
+          Powered by aave-v3-react
         </Link>
       </Box>
     </HStack>

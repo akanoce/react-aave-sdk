@@ -10,3 +10,4 @@ export * from "./useSignERC20Approval/useSignERC20Approval";
 export * from "./useSupplyWithPermit/useSupplyWithPermit";
 export * from "./useRepayWithPermit/useRepayWithPermit";
 export * from "./useSetUsageAsCollateral/useSetUsageAsCollateral";
+export * from "./useEthersProvider/useEthersProvider";

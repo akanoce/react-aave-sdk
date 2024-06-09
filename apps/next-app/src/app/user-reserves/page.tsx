@@ -1,6 +1,6 @@
 "use client";
 
-import { formatBalance, useUserReserves } from "react-aave-v3";
+import { formatBalance, useUserReserves } from "aave-v3-react";
 import { UserReservesTable } from "@repo/components";
 import {
   Box,

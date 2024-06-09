@@ -5,8 +5,10 @@ import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ConnectKitProvider } from "connectkit";
+import { AaveContractsProvider } from "aave-v3-react";
+import { RouterProvider } from "react-router-dom";
 import { config } from "./config";
-import { App } from "./App";
+import { router } from "./router";
 
 const queryClient = new QueryClient();
 
@@ -17,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <QueryClientProvider client={queryClient}>
           <ReactQueryDevtools initialIsOpen={false} />
           <ConnectKitProvider>
-            <App />
+            <AaveContractsProvider>
+              <RouterProvider router={router} />
+            </AaveContractsProvider>
           </ConnectKitProvider>
         </QueryClientProvider>
       </WagmiProvider>

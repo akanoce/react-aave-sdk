@@ -14,7 +14,7 @@ export const Navbar = () => (
           isExternal
           href="https://github.com/akanoce/react-aave-sdk"
         >
-          Powered by react-aave-sdk
+          Powered by aave-v3-react
         </Link>
       </Box>
     </HStack>

@@ -2,7 +2,7 @@
   "name": "@repo/components",
   "version": "1.0.0",
   "private": true,
-  "description": "Shared UI components for react-aave-v3 monorepo",
+  "description": "Shared UI components for aave-v3-react monorepo",
   "main": "src/index.ts",
   "repository": "git@github.com:akanoce/react-aave-sdk.git",
   "author": "<eriknucib@live.it>",
@@ -17,7 +17,7 @@
     "lint": "eslint --ext .ts,.tsx . --fix"
   },
   "dependencies": {
-    "react-aave-v3": "*",
+    "aave-v3-react": "*",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
