@@ -10,7 +10,7 @@ export const NetworkSelect = () => {
     (e: ChangeEvent<HTMLSelectElement>) => {
       setChainId(Number(e.target.value));
     },
-    [setChainId]
+    [setChainId],
   );
   return (
     <Select value={chainId} onChange={onChange}>

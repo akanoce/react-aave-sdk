@@ -14,7 +14,7 @@ export const config = createConfig(
         acc[network.id] = http();
         return acc;
       },
-      {} as Record<number, ReturnType<typeof http>>
+      {} as Record<number, ReturnType<typeof http>>,
     ),
-  })
+  }),
 );
