@@ -8730,6 +8730,48 @@ tty-table@^4.1.5:
     wcwidth "^1.0.1"
     yargs "^17.7.1"
 
+turbo-darwin-64@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/turbo-darwin-64/-/turbo-darwin-64-2.0.3.tgz#52c5f79b4027dfd0184fb963da41bf989be4a00d"
+  integrity sha512-v7ztJ8sxdHw3SLfO2MhGFeeU4LQhFii1hIGs9uBiXns/0YTGOvxLeifnfGqhfSrAIIhrCoByXO7nR9wlm10n3Q==
+
+turbo-darwin-arm64@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/turbo-darwin-arm64/-/turbo-darwin-arm64-2.0.3.tgz#46fa54d0cd95782ac38015e3396d59cdbdeb1eb8"
+  integrity sha512-LUcqvkV9Bxtng6QHbevp8IK8zzwbIxM6HMjCE7FEW6yJBN1KwvTtRtsGBwwmTxaaLO0wD1Jgl3vgkXAmQ4fqUw==
+
+turbo-linux-64@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/turbo-linux-64/-/turbo-linux-64-2.0.3.tgz#17d6714b32381d474ef2ee5613343165f9bd75bc"
+  integrity sha512-xpdY1suXoEbsQsu0kPep2zrB8ijv/S5aKKrntGuQ62hCiwDFoDcA/Z7FZ8IHQ2u+dpJARa7yfiByHmizFE0r5Q==
+
+turbo-linux-arm64@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/turbo-linux-arm64/-/turbo-linux-arm64-2.0.3.tgz#4f1bfe421dcecf2fb1164a1e223ba310d6e28b6f"
+  integrity sha512-MBACTcSR874L1FtLL7gkgbI4yYJWBUCqeBN/iE29D+8EFe0d3fAyviFlbQP4K/HaDYet1i26xkkOiWr0z7/V9A==
+
+turbo-windows-64@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/turbo-windows-64/-/turbo-windows-64-2.0.3.tgz#9d1b99aff361bcbf4e065029e9dfa6682a0c0b2d"
+  integrity sha512-zi3YuKPkM9JxMTshZo3excPk37hUrj5WfnCqh4FjI26ux6j/LJK+Dh3SebMHd9mR7wP9CMam4GhmLCT+gDfM+w==
+
+turbo-windows-arm64@2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/turbo-windows-arm64/-/turbo-windows-arm64-2.0.3.tgz#0e0641acda3325a4a3d28123ef21017a7aae8f38"
+  integrity sha512-wmed4kkenLvRbidi7gISB4PU77ujBuZfgVGDZ4DXTFslE/kYpINulwzkVwJIvNXsJtHqyOq0n6jL8Zwl3BrwDg==
+
+turbo@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/turbo/-/turbo-2.0.3.tgz#789f64666d15dbc6fc85ce507a6c6888d70df88f"
+  integrity sha512-jF1K0tTUyryEWmgqk1V0ALbSz3VdeZ8FXUo6B64WsPksCMCE48N5jUezGOH2MN0+epdaRMH8/WcPU0QQaVfeLA==
+  optionalDependencies:
+    turbo-darwin-64 "2.0.3"
+    turbo-darwin-arm64 "2.0.3"
+    turbo-linux-64 "2.0.3"
+    turbo-linux-arm64 "2.0.3"
+    turbo-windows-64 "2.0.3"
+    turbo-windows-arm64 "2.0.3"
+
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/type-check/-/type-check-0.4.0.tgz#07b8203bfa7056c0657050e3ccd2c37730bab8f1"
