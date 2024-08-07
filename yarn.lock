@@ -2,17 +2,17 @@
 # yarn lockfile v1
 
 
-"@aave/contract-helpers@^1.28.0":
-  version "1.28.2"
-  resolved "https://registry.yarnpkg.com/@aave/contract-helpers/-/contract-helpers-1.28.2.tgz#120960594100296beb0c3d6ab836646c7a19264a"
-  integrity sha512-fpADYBWKJqb9ueSO0x7wJwRAr6vVZfHkAuRAnK2fecUV1FaIxcg7aUocBiDgnRU7xHoYqn+1Iam5GzXPN82vtg==
+"@aave/contract-helpers@^1.29.1":
+  version "1.29.1"
+  resolved "https://registry.yarnpkg.com/@aave/contract-helpers/-/contract-helpers-1.29.1.tgz#34beab8afa35bbfc6168c78ced8317d96a493fe0"
+  integrity sha512-34z5CKpNdEx26G+DSezovdR3PyAf0v0Typbf2udaKG4GrOBgqbKqxr4zqS/dpFO5aAQJJ+nuEM19lKRK4sMcpg==
   dependencies:
     isomorphic-unfetch "^3.1.0"
 
-"@aave/math-utils@^1.28.0":
-  version "1.28.2"
-  resolved "https://registry.yarnpkg.com/@aave/math-utils/-/math-utils-1.28.2.tgz#8738de605069f466b7b97c29a041d3d9ceab9efc"
-  integrity sha512-6A+IE3r5txeZZ55/8pG7O+UYvK3sbm4bF7zetr8SywStRMoEJMNPvdCyyQXIA7tBHXpa/cjIDsg31aDOcGHVWw==
+"@aave/math-utils@^1.29.1":
+  version "1.29.1"
+  resolved "https://registry.yarnpkg.com/@aave/math-utils/-/math-utils-1.29.1.tgz#fcb9499bd472bde7b80429c7dbe63d4358852697"
+  integrity sha512-a+L2+vjza/nH4BxUTzwDcoJH/Qr6UP+g+9YSwG7YKUgoVfdy8gJs5VyXjfDDEVe9lMeZuPJq7CqrgV4P2M6Nkg==
 
 "@adraffy/ens-normalize@1.10.0":
   version "1.10.0"
@@ -250,10 +250,10 @@
     "@babel/helper-validator-identifier" "^7.24.7"
     to-fast-properties "^2.0.0"
 
-"@bgd-labs/aave-address-book@^2.25.0":
-  version "2.28.0"
-  resolved "https://registry.yarnpkg.com/@bgd-labs/aave-address-book/-/aave-address-book-2.28.0.tgz#5bc8c0840245a0132fea56f9e30b138578300b2b"
-  integrity sha512-a59tz8qL5qY9PAUhHp5PZzPc/r5STCkDQYXMjXhkJbpAlpJTGjQ4O687BVL6cPQqs8jmU+sNCIF/m1ibE+EICg==
+"@bgd-labs/aave-address-book@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@bgd-labs/aave-address-book/-/aave-address-book-3.0.1.tgz#942cef06984ed7b12b5a6694c5010637b505edd3"
+  integrity sha512-dlq/tBbGzmXPK4q94+Oy/XFXsE3qnKq60L9Hd67WlF3f6zCyzuTuQvUCPW/7hpH3Wda9LAnUbOxGunHAt05n6g==
 
 "@chakra-ui/accordion@2.3.1":
   version "2.3.1"
