@@ -28,8 +28,8 @@
     "pino-pretty": "^11.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "viem": "2.9.31",
-    "wagmi": "^2.9.3",
+    "viem": "^2.24.1",
+    "wagmi": "^2.14.15",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

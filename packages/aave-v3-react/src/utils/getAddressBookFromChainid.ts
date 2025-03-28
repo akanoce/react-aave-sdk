@@ -6,14 +6,12 @@ import {
   AaveV3Avalanche,
   AaveV3Base,
   AaveV3BaseSepolia,
-  AaveV3Fantom,
-  AaveV3FantomTestnet,
+  AaveV3Linea,
+  AaveV3Mantle,
+  AaveV3ZkSync,
   AaveV3Gnosis,
-  AaveV3Harmony,
-  AaveV3Fuji,
   AaveV3BNB,
   AaveV3Polygon,
-  AaveV3PolygonZkEvm,
   AaveV3Optimism,
   AaveV3OptimismSepolia,
   AaveV3Scroll,
@@ -40,7 +38,11 @@ import {
   optimismSepolia,
   scrollSepolia,
   scroll,
+  linea,
+  mantle,
+  zksync,
 } from "viem/chains";
+// TODO: Sonic not exported by viem
 
 export const supportedNetworks = [
   sepolia,
@@ -63,6 +65,8 @@ export const supportedNetworks = [
   scroll,
   scrollSepolia,
   bsc,
+  linea,
+  mantle,
 ];
 
 export const getAddressBookFromChainid = (chainId: number) => {
@@ -83,22 +87,14 @@ export const getAddressBookFromChainid = (chainId: number) => {
       return AaveV3Base;
     case baseSepolia.id:
       return AaveV3BaseSepolia;
-    case fantom.id:
-      return AaveV3Fantom;
-    case fantomTestnet.id:
-      return AaveV3FantomTestnet;
     case gnosis.id:
       return AaveV3Gnosis;
-    case harmonyOne.id:
-      return AaveV3Harmony;
-    case avalancheFuji.id:
-      return AaveV3Fuji;
+    // case avalancheFuji.id:
+    //   return AaveV3Fuji; // do not support UI_POOL_DATA_PROVIDER
     //   case metis.id:
     //     return AaveV3Metis; // do not support WETH_GATEWAY
     case polygon.id:
       return AaveV3Polygon;
-    case polygonZkEvm.id:
-      return AaveV3PolygonZkEvm;
     case optimism.id:
       return AaveV3Optimism;
     case optimismSepolia.id:
@@ -107,6 +103,17 @@ export const getAddressBookFromChainid = (chainId: number) => {
       return AaveV3Scroll;
     case scrollSepolia.id:
       return AaveV3ScrollSepolia;
+    // case sonic.id:
+    //   return AaveV3Sonic;
+    // TODO: Add sonic
+    case linea.id:
+      return AaveV3Linea;
+    case mantle.id:
+      return AaveV3Mantle;
+    // case celo.id:
+    //   return AaveV3Celo; // do not support WETH_GATEWAY
+    case zksync.id:
+      return AaveV3ZkSync;
     default:
       throw new Error("Chain not supported");
   }
