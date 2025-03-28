@@ -4,7 +4,10 @@
   "version": "1.0.0",
   "description": "Monorepo for developing a collection of hooks to interact with the aave pools and smart contracts",
   "main": "index.js",
-  "repository": "git@github.com:akanoce/react-aave-sdk.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/akanoce/react-aave-sdk.git"
+  },
   "author": "<eriknucib@live.it>",
   "license": "MIT",
   "scripts": {
