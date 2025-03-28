@@ -7,8 +7,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: "module",
+    project: "./tsconfig.json",
+    tsconfigRootDir: __dirname,
   },
-  plugins: ["prettier"],
+  plugins: ["react-refresh", "prettier", "@typescript-eslint"],
   rules: {
     "prettier/prettier": [
       "error",
@@ -21,5 +23,7 @@ module.exports = {
     "react/require-default-props": "off",
     "react/function-component-definition": "off",
     "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/no-throw-literal": "off",
   },
 };

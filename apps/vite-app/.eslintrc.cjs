@@ -12,10 +12,10 @@ module.exports = {
   ignorePatterns: ["dist", ".eslintrc.cjs"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    
-   project: "./tsconfig.json"
+    project: "./tsconfig.json",
+    tsconfigRootDir: __dirname,
   },
-  plugins: ["react-refresh", "prettier"],
+  plugins: ["react-refresh", "prettier", "@typescript-eslint"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
@@ -35,6 +35,7 @@ module.exports = {
     "import/extensions": "off",
     "import/export": "off",
     "import/no-extraneous-dependencies": "off",
-
+    "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/no-throw-literal": "off",
   },
 };
