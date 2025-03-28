@@ -17,11 +17,11 @@
     "lint": "eslint --ext .ts,.tsx . --fix"
   },
   "dependencies": {
-    "aave-v3-react": "*",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@types/react": "^18.3.1",
+    "aave-v3-react": "*",
     "bignumber.js": "^9.1.2",
     "cryptocurrency-icons": "^0.18.1",
     "framer-motion": "^11.1.7",
@@ -31,6 +31,9 @@
     "wagmi": "^2.14.15"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-prettier": "^9.1.0",

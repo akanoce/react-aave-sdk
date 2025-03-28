@@ -14,8 +14,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2020,
     sourceType: "module",
+    project: "./tsconfig.json",
+    tsconfigRootDir: __dirname,
   },
-  plugins: ["react-refresh", "prettier"],
+  plugins: ["react-refresh", "prettier", "@typescript-eslint"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
@@ -34,5 +36,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/no-throw-literal": "off",
   },
 };

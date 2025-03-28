@@ -11,7 +11,6 @@
     "clean": "rm -rf .next"
   },
   "dependencies": {
-    "aave-v3-react": "*",
     "@chakra-ui/next-js": "^2.2.0",
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
@@ -19,6 +18,7 @@
     "@repo/components": "*",
     "@tanstack/react-query": "^5.28.14",
     "@tanstack/react-query-devtools": "^5.28.14",
+    "aave-v3-react": "*",
     "connectkit": "^1.7.3",
     "encoding": "^0.1.13",
     "ethers": "5",
@@ -37,7 +37,9 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "@typescript-eslint/eslint-plugin": "^8.28.0",
+    "@typescript-eslint/parser": "^8.28.0",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^18.0.0",
     "eslint-config-next": "14.2.3",

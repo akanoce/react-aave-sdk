@@ -13,8 +13,9 @@ module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.json",
+    tsconfigRootDir: __dirname,
   },
-  plugins: ["react-refresh", "prettier"],
+  plugins: ["react-refresh", "prettier", "@typescript-eslint"],
   rules: {
     "react-refresh/only-export-components": [
       "warn",
@@ -34,5 +35,7 @@ module.exports = {
     "consistent-return": "off",
     "@typescript-eslint/no-unused-vars": "off",
     "import/extensions": "off",
+    "@typescript-eslint/lines-between-class-members": "off",
+    "@typescript-eslint/no-throw-literal": "off",
   },
 };
