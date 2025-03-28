@@ -13,8 +13,8 @@ export function clientToProvider(client: Client<Transport, Chain>) {
   if (transport.type === "fallback")
     return new providers.FallbackProvider(
       (transport.transports as ReturnType<Transport>[]).map(
-        ({ value }) => new providers.JsonRpcProvider(value?.url, network),
-      ),
+        ({ value }) => new providers.JsonRpcProvider(value?.url, network)
+      )
     );
   return new providers.JsonRpcProvider(transport.url, network);
 }
@@ -23,6 +23,5 @@ export function clientToProvider(client: Client<Transport, Chain>) {
 export function useEthersProvider({ chainId }: { chainId?: number } = {}) {
   const client = useClient<Config>({ chainId });
   if (!client) throw new Error("No client found");
-  // @ts-expect-error
   return useMemo(() => clientToProvider(client), [client]);
 }
