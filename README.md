@@ -1,4 +1,8 @@
+
+
 # Aave SDK
+
+## This repo has been archived. Please use [the official SDK](https://aave.com/docs/developers/aave-v3/getting-started/react).
 
 ## [Aave V3 React is out!](https://www.npmjs.com/package/aave-v3-react)
 
